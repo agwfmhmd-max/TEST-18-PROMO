@@ -297,9 +297,9 @@ function buildPool(){
 }
 
 function makeAttempt(list){
-  return shuffle(list).map(q=>{
+  return shuffle(list).map((q,i)=>{
     const opts = shuffle(q[lang].o.map((text,i)=>({text,i})));
-    return {...q, opts, correct: opts.map((o,n)=>q.a.includes(o.i)?n:null).filter(n=>n!==null)};
+    return {...q, uid:q.id+'-'+i+'-'+Math.random().toString(36).slice(2,7), opts, correct: opts.map((o,n)=>q.a.includes(o.i)?n:null).filter(n=>n!==null)};
   });
 }
 
@@ -350,10 +350,10 @@ function readinessTier(pct,t){
 }
 
 function saveResult(){
-  const raw=attempt.reduce((s,q)=>s+questionScore(q,answers[q.id]||[]),0);
+  const raw=attempt.reduce((s,q)=>s+questionScore(q,answers[q.uid]||[]),0);
   const max=attempt.reduce((s,q)=>s+q.pts,0);
   const details=attempt.map(q=>{
-    const chosen=answers[q.id]||[];
+    const chosen=answers[q.uid]||[];
     const qs=questionScore(q,chosen);
     return {
       id:q.id, cat:q.cat, q:q[lang].q, opts:q.opts.map(o=>o.text), correct:q.correct, chosen,
@@ -418,13 +418,13 @@ function chooseDomain(c){ domainSel=c; startExam(); }
 function renderRail(){
   const t=T[lang];
   const done=Object.keys(answers).filter(id=>answers[id]?.length).length;
-  const qmap=attempt.map((q,i)=>'<button class="'+(i===idx?'current ':'')+(answers[q.id]?.length?'filled':'')+'" onclick="go('+i+')">'+(i+1)+'</button>').join('');
+  const qmap=attempt.map((q,i)=>'<button class="'+(i===idx?'current ':'')+(answers[q.uid]?.length?'filled':'')+'" onclick="go('+i+')">'+(i+1)+'</button>').join('');
   const rail='<aside class="rail"><div class="railhead"><span>'+t.review+'<div class="railmode">'+esc(modeLabel(t))+'</div></span><b>'+done+'/'+attempt.length+'</b></div><div class="clock '+(seconds<300?'warn':'')+'">'+fmt(seconds)+'</div>'+(seconds<300?'<p style="font:12px Arial;color:#f1b09c">'+t.warning+'</p>':'')+'<div class="bar"><i style="width:'+(done/attempt.length*100)+'%"></i></div><div class="map">'+qmap+'</div><button class="finish" onclick="finish()">⚑ '+t.finish+'</button></aside>';
   const el=$('.rail'); if(el) el.outerHTML=rail;
 }
 
 function exam(t){
-  const q=attempt[idx], chosen=answers[q.id]||[];
+  const q=attempt[idx], chosen=answers[q.uid]||[];
   return '<section class="exam"><aside class="rail"></aside><section>'
   +'<div class="qmeta"><span>'+t.q+' '+(idx+1)+' '+t.of+' '+attempt.length+'</span><span class="qbadge">'+esc(modeLabel(t))+'</span><b>'+q.pts+' '+t.pts+'</b></div>'
   +'<div class="question"><h2>'+esc(q[lang].q)+'</h2>'
@@ -434,9 +434,9 @@ function exam(t){
 }
 
 function toggle(i){
-  const q=attempt[idx]; let a=answers[q.id]||[];
+  const q=attempt[idx]; let a=answers[q.uid]||[];
   a = a.includes(i) ? a.filter(x=>x!==i) : [...a,i].sort((x,y)=>x-y);
-  answers[q.id]=a; render();
+  answers[q.uid]=a; render();
 }
 function go(i){ idx=i; phase='exam'; render(); }
 function finish(){ phase='review'; clearInterval(timer); render(); }
@@ -444,7 +444,7 @@ function finish(){ phase='review'; clearInterval(timer); render(); }
 function review(t){
   const done=Object.keys(answers).filter(id=>answers[id]?.length).length;
   return '<section class="review"><div class="eyebrow">'+esc(modeLabel(t))+'</div><h1>'+t.review+'</h1><p>'+done+' '+t.answered+' · '+(attempt.length-done)+' '+t.unanswered+'</p>'
-  +'<div class="reviewgrid">'+attempt.map((q,i)=>'<button class="'+(answers[q.id]?.length?'done':'open')+'" onclick="go('+i+')"><span>'+String(i+1).padStart(2,'0')+'</span><strong>'+(answers[q.id]?.length?t.answered:t.unanswered)+'</strong><small>'+q.pts+' '+t.pts+'</small></button>').join('')+'</div>'
+  +'<div class="reviewgrid">'+attempt.map((q,i)=>'<button class="'+(answers[q.uid]?.length?'done':'open')+'" onclick="go('+i+')"><span>'+String(i+1).padStart(2,'0')+'</span><strong>'+(answers[q.uid]?.length?t.answered:t.unanswered)+'</strong><small>'+q.pts+' '+t.pts+'</small></button>').join('')+'</div>'
   +'<div class="actions"><button class="secondary" onclick="go(0)">'+t.back+'</button><button class="primary" onclick="askSubmit()">'+t.submit+'</button></div>'
   +(pending?'<div class="modal"><div class="modalbox"><h2>'+t.submit+'</h2><p>'+t.confirm+'</p><div class="actions"><button class="secondary" onclick="pending=false;render()">'+t.cancel+'</button><button class="primary" onclick="submitFinal()">'+t.confirmBtn+'</button></div></div></div>':'')
   +'</section>';
@@ -469,10 +469,10 @@ function historyDetails(t){
 
 function results(t){
   const max=attempt.reduce((s,q)=>s+q.pts,0);
-  const raw=attempt.reduce((s,q)=>s+questionScore(q,answers[q.id]||[]),0);
+  const raw=attempt.reduce((s,q)=>s+questionScore(q,answers[q.uid]||[]),0);
   const score=Math.round(raw/max*20*100)/100;
   const pct=Math.round(raw/max*10000)/100;
-  const wrongCount = attempt.filter(q=>!isFullyCorrect(q, answers[q.id]||[])).length;
+  const wrongCount = attempt.filter(q=>!isFullyCorrect(q, answers[q.uid]||[])).length;
   const tier = readinessTier(pct, t);
   return '<section class="results"><aside class="score"><div class="eyebrow">'+esc(modeLabel(t))+'</div><h1>'+t.result+'</h1>'
   +'<strong class="scorevalue">'+formatMark(score)+'</strong><span> / 20</span>'
@@ -484,7 +484,7 @@ function results(t){
   +'</div></aside>'
   +'<section><div class="qmeta"><h2 style="margin:0;font-size:18px">'+t.details+'</h2><span>'+Object.keys(answers).filter(id=>answers[id]?.length).length+'/'+attempt.length+'</span></div>'
   +attempt.map(q=>{
-    const a=answers[q.id]||[];
+    const a=answers[q.uid]||[];
     const qs=questionScore(q,a);
     const marks=q.opts.map((o,n)=>optionMark(q,n));
     const markHtml=marks.map((m,n)=>'<span class="option-mark '+(a.includes(n)?'selected ':'')+(q.correct.includes(n)?'correct':'incorrect')+'"><b>'+String.fromCharCode(65+n)+'</b><span>'+esc(q.opts[n].text)+'</span><b class="'+(m>=0?'mark-positive':'mark-negative')+'">'+formatMark(m)+'</b></span>').join('');
@@ -499,7 +499,7 @@ function results(t){
 
 function retakeSame(){ startExam(); }
 function retakeWrong(){
-  const wrongIds = new Set(attempt.filter(q=>!isFullyCorrect(q, answers[q.id]||[])).map(q=>q.id));
+  const wrongIds = new Set(attempt.filter(q=>!isFullyCorrect(q, answers[q.uid]||[])).map(q=>q.id));
   if(!wrongIds.size) return;
   const base = QUESTIONS.filter(q=>wrongIds.has(q.id));
   attempt = makeAttempt(base);
