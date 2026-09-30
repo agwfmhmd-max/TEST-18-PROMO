@@ -1,13 +1,13 @@
 {
-  "name": "ISCAE — 18ème Promotion | Plateforme officielle",
+  "name": "ISCAE — 18ème Promotion",
   "short_name": "ISCAE 18",
-  "description": "Plateforme officielle de la 18ème promotion de l’ISCAE Mauritanie : annuaire des diplômés et informations de cérémonie.",
+  "description": "Plateforme officielle de remise des diplômes de l'ISCAE — annuaire des diplômés.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#f5f3ee",
-  "theme_color": "#0f3d3e",
+  "background_color": "#180a42",
+  "theme_color": "#180a42",
   "categories": ["education", "productivity"],
   "screenshots": [
     {
@@ -49,10 +49,10 @@
   ],
   "shortcuts": [
     {
-      "name": "Rechercher un diplômé",
-      "short_name": "Recherche",
-      "description": "Rechercher un diplômé par nom ou matricule",
-      "url": "./index.html#directory",
+      "name": "بحث الخريجين",
+      "short_name": "بحث",
+      "description": "ابحث عن معلومات الخريج برقم التسجيل",
+      "url": "./index.html#search",
       "icons": [
         {
           "src": "./icons/icon-192.png",

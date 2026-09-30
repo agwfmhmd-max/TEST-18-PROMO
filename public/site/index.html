@@ -12,15 +12,18 @@
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>ISCAE — 18ème Promotion | Plateforme officielle des diplômés</title>
-<meta name="description" content="Plateforme officielle de la 18ème promotion de l’ISCAE Mauritanie : retrouvez les diplômés et les informations de la cérémonie." />
-<meta property="og:title" content="ISCAE — 18ème Promotion | Diplômés" />
-<meta property="og:description" content="Retrouvez les diplômés de l’ISCAE et découvrez la plateforme officielle de la 18ème promotion." />
+<title>ISCAE — 18ème Promotion</title>
+<meta name="description" content="منصة ISCAE 18ème Promotion لإدارة حفل التخرج: بحث الخريجين برقم التسجيل، التخصصات، الفئات، والعد التنازلي للحفلات." />
+<meta property="og:title" content="ISCAE — 18ème Promotion" />
+<meta name="twitter:title" content="ISCAE — 18ème Promotion" />
+<meta property="og:image" content="icons/icon-512.png" />
+<meta property="og:site_name" content="ISCAE" />
+<meta property="og:description" content="ابحث عن معلوماتك كخريج وتابع استعدادات حفل توزيع شهادات التكريم." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <!-- PWA: قابلية التثبيت على الهاتف والحاسوب -->
 <link rel="manifest" href="manifest.json" />
-<meta name="theme-color" content="#0f3d3e" />
+<meta name="theme-color" content="#180a42" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -30,7 +33,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Almarai:wght@300;400;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <style>
@@ -134,7 +137,7 @@ header.topbar{
 }
 .brand-text{display:flex;flex-direction:column;line-height:1.15}
 .brand-text b{font-size:16px;letter-spacing:.6px}
-.brand-text span{font-size:11px;color:var(--violet-500);font-weight:700;letter-spacing:1.4px}
+.brand-text span{font-size:11px;color:var(--violet-text);font-weight:700;letter-spacing:1.4px}
 .icon-btn{
   width:48px;height:48px;border-radius:16px;display:grid;place-items:center;
   background:var(--surface); border:1px solid var(--stroke);
@@ -169,7 +172,7 @@ header.topbar{
 .hero p{margin-top:14px;font-size:clamp(15px,3.6vw,19px);color:var(--muted);max-width:640px;margin-inline:auto}
 .pill{
   display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;
-  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-500);
+  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-text);
   font-weight:700;font-size:13px;margin-bottom:18px;
   transition:all 0.3s ease;
 }
@@ -213,7 +216,7 @@ header.topbar{
 }
 .search-field:focus-within{border-color:var(--violet-300);box-shadow:var(--ring),var(--shadow-md)}
 .search-field input{flex:1;border:none;outline:none;background:transparent;padding:16px 0;font-size:17px;font-weight:600;letter-spacing:2px}
-.search-field .hash{color:var(--violet-500);font-weight:900;font-size:20px}
+.search-field .hash{color:var(--violet-text);font-weight:900;font-size:20px}
 
 .result-card{margin-top:22px;overflow:hidden;animation:fadeUp .5s ease both}
 .result-head{background:var(--grad-primary);color:#fff;padding:26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -249,9 +252,9 @@ header.topbar{
 .event-bottom small{color:var(--muted);font-weight:700;font-size:12px}
 .cd{display:flex;gap:10px;justify-content:center;margin-top:12px;direction:ltr}
 .cd-box{background:var(--violet-50);border:1px solid var(--stroke);border-radius:16px;padding:10px 6px;min-width:64px}
-.cd-box b{display:block;font-size:24px;font-weight:900;color:var(--violet-500)}
+.cd-box b{display:block;font-size:24px;font-weight:900;color:var(--violet-text)}
 .cd-box span{font-size:11px;color:var(--muted);font-weight:700}
-.ended{color:var(--violet-500);font-weight:900;font-size:22px;margin-top:8px}
+.ended{color:var(--violet-text);font-weight:900;font-size:22px;margin-top:8px}
 
 /* ==========================================================================
    8. FOOTER
@@ -328,7 +331,7 @@ html.dark .tag-C{background:#5b3f0b;color:#ffe6ab}
 html.dark .tag-D{background:#2b2f6b;color:#ccd3ff}
 .mini-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-bottom:22px}
 .mini{padding:18px;border-radius:20px;border:1px solid var(--stroke);background:var(--surface-solid);box-shadow:var(--shadow-sm)}
-.mini b{display:block;font-size:30px;font-weight:900;color:var(--violet-500)}
+.mini b{display:block;font-size:30px;font-weight:900;color:var(--violet-text)}
 .mini small{color:var(--muted);font-weight:700}
 .empty{padding:50px 20px;text-align:center;color:var(--muted);font-weight:700}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
@@ -412,14 +415,14 @@ html.dark .tag-D{background:#2b2f6b;color:#ccd3ff}
   justify-content:center;gap:6px;flex-wrap:wrap
 }
 .search-hint code{
-  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-500);
+  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-text);
   border-radius:8px;padding:2px 8px;font-weight:800;letter-spacing:1px;direction:ltr;unicode-bidi:isolate
 }
 .search-hint.err{color:#be123c}
 .result-message{
   background:var(--violet-50);border-bottom:1px solid var(--stroke);
   padding:14px 26px;display:flex;align-items:center;gap:12px;
-  font-weight:800;font-size:14.5px;color:var(--violet-700,var(--violet-500));
+  font-weight:800;font-size:14.5px;color:var(--violet-text);
 }
 .result-message .ico{flex:0 0 auto;display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:rgba(124,58,237,.14);font-size:17px}
 html.dark .result-message{background:rgba(139,92,246,.10)}
@@ -568,13 +571,13 @@ html.dark .result-card-new .congrats-msg p { color: var(--violet-300); }
 [dir="rtl"] .cards-line:hover{transform:translateX(-2px)}
 .cards-line .cl-name{display:flex;align-items:center;gap:9px}
 .cards-dot{width:15px;height:15px;border-radius:50%;box-shadow:0 0 0 3px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.15);flex:0 0 auto}
-.cards-line.total{border-top:1px dashed var(--stroke);margin-top:10px;padding-top:14px;background:transparent;color:var(--violet-600);font-weight:900;font-size:15px}
+.cards-line.total{border-top:1px dashed var(--stroke);margin-top:10px;padding-top:14px;background:transparent;color:var(--violet-text);font-weight:900;font-size:15px}
 .cards-qty{background:var(--grad-emerald);color:#fff;border-radius:999px;padding:4px 14px;font-weight:900;min-width:44px;text-align:center;box-shadow:0 2px 8px rgba(16,185,129,.35)}
 .cards-line.total .cards-qty{background:var(--grad-primary);box-shadow:0 2px 8px rgba(124,58,237,.35);font-size:15px;padding:5px 16px}
 .cards-empty{color:var(--muted);font-size:13px;padding:8px 4px}
 .cer-admin-card{border:1px solid var(--stroke);border-radius:var(--radius-sm);padding:16px;background:var(--surface-solid);margin-bottom:16px}
 .cer-admin-card .cer-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.cer-badge{display:inline-flex;gap:6px;align-items:center;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:800;background:var(--violet-50);color:var(--violet-600)}
+.cer-badge{display:inline-flex;gap:6px;align-items:center;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:800;background:var(--violet-50);color:var(--violet-text)}
 .cer-ok{color:var(--emerald-dark);font-weight:900}
 .cer-bad{color:#e11d48;font-weight:900}
 
@@ -586,7 +589,7 @@ html.dark .result-card-new .congrats-msg p { color: var(--violet-300); }
 .color-row-grid input[type="number"]{text-align:center}
 .cr-remove{border:none;background:rgba(225,29,72,.1);color:#e11d48;border-radius:10px;height:44px;width:38px;font-weight:900;cursor:pointer;transition:.15s}
 .cr-remove:hover{background:rgba(225,29,72,.2)}
-.cards-sum-box{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:12px 16px;border-radius:14px;font-weight:800;font-size:14px;background:var(--violet-50);color:var(--violet-600);border:1px solid var(--stroke);transition:.2s}
+.cards-sum-box{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:12px 16px;border-radius:14px;font-weight:800;font-size:14px;background:var(--violet-50);color:var(--violet-text);border:1px solid var(--stroke);transition:.2s}
 .cards-sum-box.ok{background:rgba(16,185,129,.12);color:var(--emerald-dark)}
 .cards-sum-box.bad{background:rgba(225,29,72,.1);color:#e11d48}
 @media (max-width:640px){
@@ -602,16 +605,194 @@ html.dark .result-card-new .congrats-msg p { color: var(--violet-300); }
   .photo-thumb{width:72px;height:90px}
 }
 
-/* ISCAE premium graduation layer — intentionally scoped over the preserved PWA shell. */
-:root{--ink:#102f31;--deep:#0b282a;--teal:#0f5b5d;--gold:#c7a45b;--paper:#f5f3ee;--surface:#fffdf8;--stroke:rgba(15,91,93,.14);--grad-primary:linear-gradient(135deg,#0b3436 0%,#0f5b5d 58%,#177c79 100%);--grad-soft:linear-gradient(180deg,#f7f6f1 0%,#eef2ef 100%);--violet-50:#eaf3f0;--violet-100:#d6e7e2;--violet-300:#8dbdb5;--violet-500:#0f5b5d;--violet-600:#0b4a4c;--violet-700:#083638}
-body{font-family:'Inter','Tajawal','Almarai',sans-serif;background:var(--paper);color:var(--ink)}
-body::before{background:radial-gradient(800px 500px at 95% -8%,rgba(199,164,91,.18),transparent 62%),radial-gradient(700px 480px at 0% 18%,rgba(15,91,93,.12),transparent 65%),var(--grad-soft)}
-.topbar{background:rgba(245,243,238,.78)!important;border-bottom-color:rgba(15,91,93,.12)!important}.brand-text span{color:var(--teal)}.brand-logo{border-radius:14px!important}.btn-primary{background:var(--grad-primary);box-shadow:0 12px 28px rgba(11,52,54,.24)}.btn-primary:hover{box-shadow:0 18px 34px rgba(11,52,54,.3)}
-.hero-shell{position:relative;overflow:hidden;margin-bottom:0;background:linear-gradient(135deg,#092a2c 0%,#0e4749 62%,#126866 100%);color:#fff;min-height:540px;display:flex;align-items:center}.hero-shell:before{content:'';position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.18) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,black,transparent)}.hero-content{position:relative;padding:88px 18px 92px;animation:fadeUp .7s ease both}.institution-lockup{display:flex;align-items:center;gap:16px;text-transform:uppercase;font-size:10px;letter-spacing:1.8px;color:rgba(255,255,255,.72);max-width:420px}.institution-lockup strong{display:block;font-size:11px;letter-spacing:1.5px;color:#fff;margin-top:5px}.hero-logo{background-color:#fff!important}.hero-kicker{display:flex;gap:10px;align-items:center;margin-top:62px;text-transform:uppercase;letter-spacing:2px;font-size:12px;color:#e8d4a5;font-weight:700}.hero-kicker .dot{width:7px;height:7px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 6px rgba(199,164,91,.15)}.hero-shell h1{font-size:clamp(52px,9vw,112px);letter-spacing:-5px;line-height:.96;margin:18px 0 20px;max-width:900px;font-weight:800}.hero-shell h1 em{font-style:normal;color:#d6bc7d}.hero-promo-name{font-size:clamp(20px,3vw,32px);font-weight:600;color:#fff;margin:-6px 0 20px;padding-inline-start:4px}.hero-lede{max-width:520px;color:rgba(255,255,255,.78);font-size:clamp(16px,2vw,20px);line-height:1.65}.hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:34px}.hero-cta{background:#f4ead0;color:#17383a;box-shadow:none}.hero-cta:hover{background:#fff}.hero-note{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.7);font-size:12px}.hero-note-mark{color:#d6bc7d;font-size:10px}.hero-orbit{position:absolute;border:1px solid rgba(214,188,125,.28);border-radius:50%;pointer-events:none}.hero-orbit-one{width:560px;height:560px;right:-170px;top:-70px}.hero-orbit-two{width:360px;height:360px;right:-60px;top:30px}.public-content{padding-top:68px}.directory-intro{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:22px}.directory-intro h2{font-size:clamp(26px,4vw,44px);line-height:1.12;letter-spacing:-1.4px;margin-top:10px;max-width:700px}.directory-intro p{max-width:310px;color:var(--muted);font-size:14px}.eyebrow{font-size:10px;letter-spacing:2.2px;font-weight:800;color:var(--teal)}.search-wrap-premium{margin-top:0;background:rgba(255,253,248,.82);padding:10px;border-radius:22px;box-shadow:0 20px 60px rgba(11,52,54,.11);border-color:rgba(15,91,93,.15)}.search-wrap-premium .search-field{box-shadow:none;border-color:transparent;background:transparent;padding:4px 14px}.search-wrap-premium .search-field:focus-within{box-shadow:0 0 0 4px rgba(15,91,93,.11);border-color:var(--teal);background:#fff}.search-wrap-premium input{font-size:16px;letter-spacing:0;font-weight:500}.search-icon{color:var(--teal);flex:0 0 auto}.search-clear{font-size:24px;color:var(--muted);padding:8px}.results-heading{display:flex;align-items:center;gap:14px;color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.8px;margin:34px 0 14px}.results-line{height:1px;background:var(--stroke);flex:1}.graduate-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.graduate-card{background:var(--surface);border:1px solid rgba(15,91,93,.13);border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(11,52,54,.06);animation:fadeUp .45s ease var(--delay) both;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}.graduate-card:hover{transform:translateY(-5px);border-color:rgba(199,164,91,.65);box-shadow:0 18px 40px rgba(11,52,54,.14)}.graduate-card-top,.graduate-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}.verified-mark{display:inline-flex;color:var(--teal);background:var(--violet-50);border-radius:99px;padding:5px 9px;font-size:10px;font-weight:800}.academic-chip{font-size:10px;color:var(--gold);font-weight:800}.graduate-card-main{display:flex;gap:14px;align-items:center;margin:22px 0}.graduate-avatar,.profile-avatar{width:64px;height:64px;flex:0 0 64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(145deg,#e2c98d,#9b7b3e);color:#fff;font-size:22px;font-weight:800;overflow:hidden;box-shadow:0 0 0 5px rgba(199,164,91,.15)}.graduate-avatar img,.profile-avatar img{width:100%;height:100%;object-fit:cover}.graduate-identity h3{font-size:18px;line-height:1.25;margin-bottom:4px}.matricule{font-size:12px;color:var(--muted);font-family:monospace;letter-spacing:1px}.graduate-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:14px 0}.graduate-meta small,.profile-facts small{display:block;color:var(--muted);font-size:10px;font-weight:700;margin-bottom:2px}.graduate-meta strong,.profile-facts strong{font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.graduate-card-foot{padding-top:15px;color:var(--muted);font-size:11px}.profile-link{color:var(--teal);font-weight:800;font-size:12px}.empty-search{text-align:center;padding:44px 20px;margin-top:22px}.empty-search-icon{font-size:36px;color:var(--gold)}.empty-search h3{font-size:22px;margin:6px 0}.empty-search p{color:var(--muted);font-size:14px}.search-tip{text-align:center;color:var(--muted);font-size:13px;padding:20px}.skeleton-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}.skeleton-card{height:230px;border-radius:22px;background:linear-gradient(100deg,rgba(15,91,93,.06) 30%,rgba(255,255,255,.75) 50%,rgba(15,91,93,.06) 70%);background-size:200% 100%;animation:shimmer 1.2s infinite}.modal-profile{max-width:520px;overflow:hidden}.profile-cover{height:112px;background:linear-gradient(135deg,#092a2c,#177c79);position:relative}.profile-body{padding:0 28px 28px;position:relative}.profile-avatar{margin-top:-32px;width:84px;height:84px;flex-basis:84px;border-radius:25px}.profile-close{position:absolute;top:-96px;inset-inline-end:16px;color:#fff;font-size:30px}.profile-body .verified-mark{margin-top:14px}.profile-body h2{font-size:28px;margin-top:10px}.profile-matricule{color:var(--muted);font-family:monospace}.profile-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0;padding-top:18px;border-top:1px solid var(--stroke)}.profile-promo{background:var(--violet-50);border-radius:14px;padding:12px;color:var(--teal);font-size:12px;font-weight:800}.promotion-admin-card{background:linear-gradient(135deg,var(--violet-50),rgba(255,253,248,.9));border:1px solid var(--stroke);border-radius:20px;padding:20px;margin-bottom:18px}.promotion-admin-copy h3{font-size:22px;margin:5px 0}.promotion-admin-copy p{color:var(--muted);font-size:13px;max-width:600px;margin-bottom:18px}.live-promo-preview{margin-top:18px;border-radius:16px;background:#0b3436;color:#fff;padding:18px}.live-promo-preview span{display:block;color:#d6bc7d;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}.live-promo-preview strong{display:block;font-size:22px;margin-top:7px}.live-promo-preview b{display:block;font-size:18px;color:#f4ead0;margin-top:4px;min-height:27px}
-@keyframes shimmer{to{background-position:-200% 0}}@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
-@media(max-width:900px){.graduate-grid,.skeleton-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.directory-intro{align-items:start;flex-direction:column}.directory-intro p{max-width:520px}.hero-shell{min-height:500px}}
-@media(max-width:600px){.hero-content{padding:58px 18px 68px}.hero-shell h1{font-size:clamp(50px,16vw,80px);letter-spacing:-3px}.hero-kicker{margin-top:46px}.institution-lockup{font-size:8px;letter-spacing:1px}.institution-lockup strong{font-size:9px}.hero-actions{align-items:start;flex-direction:column;gap:15px}.public-content{padding-top:46px}.graduate-grid,.skeleton-grid{grid-template-columns:1fr}.search-wrap-premium{padding:7px}.search-wrap-premium .btn{width:100%}.profile-body{padding-inline:20px}.hero-orbit-one{right:-300px}.hero-orbit-two{right:-180px}}
+/* ==========================================================================
+   PREMIUM REDESIGN — graduation identity (overrides; appended last)
+   Palette derived from the ISCAE icon (#6528dc); gold used only as a hairline accent.
+   ========================================================================== */
+:root{
+  --primary:#6528dc; --primary-foreground:#fff; --secondary:#2a1163; --accent:#c9a24a;
+  --background:var(--bg); --surface-elevated:var(--surface-solid); --foreground:var(--text);
+  --border:var(--stroke); --success:#059669; --warning:#b45309; --error:#be123c;
+  --ink:#180a42; --ink-2:#2d1170; --gold:#c9a24a;
+  --ease:cubic-bezier(.22,.8,.2,1);
+  --violet-text:#6528dc;
+  --muted:#586377;
+}
+html.dark{--violet-text:#b8a3ff;--muted:#94a3b8}
+body{font-family:'Plus Jakarta Sans','Tajawal','Almarai',system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
+.topbar{transition:box-shadow .3s var(--ease),background .3s var(--ease)}
+.topbar.scrolled{box-shadow:0 8px 30px -12px rgba(24,10,66,.35)}
+.brand-logo-img{width:42px;height:42px;border-radius:12px;box-shadow:0 4px 14px rgba(101,40,220,.35)}
+.topnav{display:flex;gap:4px;margin-inline-end:8px}
+.topnav a{padding:10px 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:12px;font-weight:700;font-size:14px;color:var(--muted);transition:color .2s,background .2s}
+.topnav a:hover{color:var(--text);background:var(--violet-50)}
+.topnav a[aria-current="true"]{color:var(--violet-text)}
+@media (max-width:760px){.topnav{display:none}}
 
+/* ---- Hero ---- */
+.hero2{position:relative;isolation:isolate;overflow:hidden;color:#fff;text-align:center;
+  background:radial-gradient(120% 90% at 50% 0%,var(--ink-2) 0%,var(--ink) 62%);
+  padding:clamp(56px,10vw,110px) 18px clamp(96px,14vw,150px)}
+.hero2-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent)}
+.hero2-bg i{position:absolute;inset-inline-start:50%;top:46%;border:1px solid rgba(201,162,74,.28);border-radius:50%;transform:translate(-50%,-50%)}
+html[dir=rtl] .hero2-bg i{transform:translate(50%,-50%)}
+.hero2-bg .a1{width:min(70vw,520px);aspect-ratio:1}
+.hero2-bg .a2{width:min(105vw,820px);aspect-ratio:1;border-color:rgba(255,255,255,.09)}
+.hero2-bg .a3{width:min(150vw,1160px);aspect-ratio:1;border-color:rgba(255,255,255,.05)}
+.hero2-bg .a1{animation:slowspin 60s linear infinite}
+@keyframes slowspin{to{rotate:360deg}}
+.hero2-in{max-width:820px;margin-inline:auto;display:flex;flex-direction:column;align-items:center}
+.hero2-logo{width:76px;height:76px;border-radius:20px;box-shadow:0 0 0 1px rgba(255,255,255,.18),0 18px 40px -10px rgba(0,0,0,.55)}
+.hero2 h1{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:10px;line-height:1.08}
+.hero2-num{font-size:clamp(40px,9.5vw,84px);font-weight:800;letter-spacing:-.03em}
+html[dir=rtl] .hero2-num{letter-spacing:0;font-weight:900}
+.hero2-name{font-size:clamp(20px,4.6vw,34px);font-weight:600;color:var(--gold);padding-top:14px;border-top:1px solid rgba(201,162,74,.55);margin-top:2px;min-width:140px}
+.hero2-inst{margin-top:26px;max-width:30ch;font-size:clamp(15px,3.4vw,19px);color:rgba(255,255,255,.82);line-height:1.6}
+.hero2-country{margin-top:6px;font-size:14px;font-weight:700;color:rgba(255,255,255,.6)}
+.hero2-soon{margin-top:14px;font-size:13px;color:rgba(255,255,255,.55)}
+.hero2-cta{margin-top:34px;min-height:52px;padding:14px 30px;border-radius:16px;background:#fff;color:var(--ink);font-weight:800;font-size:16px;box-shadow:0 14px 34px -10px rgba(0,0,0,.5)}
+.hero2-cta:hover{transform:translateY(-2px);box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
+.hero2-in>*{animation:rise .7s var(--ease) both}
+.hero2-in>:nth-child(2){animation-delay:.08s}.hero2-in>:nth-child(3){animation-delay:.16s}.hero2-in>:nth-child(4){animation-delay:.22s}.hero2-in>:nth-child(n+5){animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---- Finder ---- */
+.finder{margin-top:-64px;position:relative;z-index:2;scroll-margin-top:90px}
+.finder-title{text-align:center;color:#fff;font-size:clamp(17px,3.6vw,22px);font-weight:700;margin-bottom:16px;text-shadow:0 1px 12px rgba(24,10,66,.5)}
+.finder-box{display:flex;align-items:center;gap:10px;background:var(--surface-solid);border:1.5px solid var(--border);border-radius:22px;padding:8px 10px;
+  box-shadow:0 24px 50px -18px rgba(24,10,66,.45);transition:box-shadow .25s var(--ease),border-color .25s}
+.finder-box:focus-within{border-color:var(--primary);box-shadow:0 0 0 5px rgba(101,40,220,.16),0 24px 50px -18px rgba(24,10,66,.5)}
+.finder-box svg{flex:none;color:var(--violet-text);margin-inline-start:8px}
+.finder-box input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font:inherit;font-size:clamp(16px,3.6vw,19px);font-weight:600;padding:16px 4px;min-height:56px}
+.finder-box input::placeholder{color:var(--muted);font-weight:500}
+.finder-clear{width:44px;height:44px;flex:none;border:0;border-radius:14px;background:var(--violet-50);color:var(--muted);font-size:20px;cursor:pointer;transition:transform .15s,background .2s}
+.finder-clear:hover{background:var(--violet-100)}.finder-clear:active{transform:scale(.92)}
+.finder-hint{margin-top:10px;text-align:center;font-size:13px;color:var(--muted)}
+.res-count{margin:26px 4px 12px;font-weight:700;color:var(--muted);font-size:14px}
+
+/* ---- Graduate cards ---- */
+.ggrid{display:grid;gap:18px;grid-template-columns:1fr}
+@media (min-width:640px){.ggrid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.ggrid{grid-template-columns:repeat(3,1fr)}}
+.gcard{position:relative;overflow:hidden;cursor:pointer;text-align:center;background:var(--surface-solid);border:1px solid var(--border);border-radius:22px;padding:0 20px 22px;
+  display:flex;flex-direction:column;align-items:center;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+  animation:rise .5s var(--ease) both;animation-delay:calc(var(--i,0)*45ms)}
+.gcard:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 22px 40px -22px rgba(101,40,220,.55)}
+.gcard-band{align-self:stretch;height:64px;margin-inline:-20px;background:linear-gradient(135deg,var(--ink-2),var(--primary));border-bottom:2px solid var(--gold)}
+.gav{width:88px;height:88px;border-radius:50%;margin-top:-44px;border:4px solid var(--surface-solid);box-shadow:0 8px 22px -8px rgba(24,10,66,.5);overflow:hidden;display:grid;place-items:center;flex:none;
+  background:hsl(var(--h,265) 55% 38%);color:#fff;font-weight:800;font-size:30px}
+.gav img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.gcard:hover .gav img{transform:scale(1.06)}
+.gcard h3{margin-top:14px;font-size:18px;font-weight:800;line-height:1.35;overflow-wrap:anywhere}
+.gcard-mat{margin-top:8px;font-weight:800;letter-spacing:.06em;color:var(--violet-text);background:var(--violet-50);padding:3px 12px;border-radius:999px;font-size:14px}
+.gcard-spec{margin-top:10px;font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.gcard-promo{margin-top:4px;font-size:13px;font-weight:700;color:var(--text)}
+.gcard-btn{margin-top:18px;min-height:44px;width:100%;background:var(--ink);color:#fff;border-radius:14px}
+.gcard-btn:hover{background:var(--primary)}
+.gempty{margin-top:26px;text-align:center;padding:44px 22px;border:1px dashed var(--violet-300);border-radius:22px;background:var(--surface)}
+.gempty svg{color:var(--violet-text);opacity:.75}.gempty b{display:block;margin-top:12px;font-size:19px}.gempty p{margin-top:6px;color:var(--muted)}
+.sk{border-radius:22px;height:270px;background:linear-gradient(100deg,var(--violet-50) 30%,var(--surface-solid) 50%,var(--violet-50) 70%);background-size:220% 100%;animation:shimmer 1.3s linear infinite;border:1px solid var(--border)}
+@keyframes shimmer{to{background-position:-220% 0}}
+.more-wrap{display:flex;justify-content:center;margin-top:22px}
+
+/* ---- Profile (digital academic identity card) ---- */
+.prof-overlay{position:fixed;inset:0;z-index:200;background:rgba(15,8,40,.62);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:max(16px,env(safe-area-inset-top)) 14px 32px;animation:fade .25s ease both}
+@keyframes fade{from{opacity:0}}
+.prof-sheet{position:relative;width:100%;max-width:640px;margin-block:auto;background:var(--surface-solid);color:var(--text);border-radius:26px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7);animation:rise .4s var(--ease) both}
+.prof-head{position:relative;text-align:center;color:#fff;padding:34px 22px 74px;background:radial-gradient(120% 120% at 50% 0%,var(--ink-2),var(--ink));border-bottom:2px solid var(--gold)}
+.prof-head::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
+.prof-inst{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:14px;color:rgba(255,255,255,.85)}
+.prof-inst img{width:30px;height:30px;border-radius:9px}
+.prof-close{position:absolute;top:12px;inset-inline-end:12px;z-index:2;width:44px;height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer;transition:background .2s,transform .15s}
+.prof-close:hover{background:rgba(255,255,255,.26)}.prof-close:active{transform:scale(.92)}
+.prof-av{width:128px;height:128px;margin:-64px auto 0;position:relative;z-index:1;font-size:44px;border:5px solid var(--surface-solid);box-shadow:0 0 0 2px var(--gold),0 18px 36px -12px rgba(24,10,66,.6)}
+.gav.prof-av{margin-top:-64px}
+.prof-body{padding:18px 22px 26px;text-align:center}
+.prof-body h2{font-size:clamp(22px,5vw,30px);font-weight:800;line-height:1.3;overflow-wrap:anywhere}
+.prof-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.prof-meta .gcard-mat{margin:0}.prof-meta .pm{font-size:13px;font-weight:700;padding:3px 12px;border-radius:999px;border:1px solid var(--border)}
+.prof-facts{margin-top:22px;border-top:1px solid var(--border);text-align:start}
+.prof-facts div{display:flex;justify-content:space-between;gap:16px;padding:13px 2px;border-bottom:1px solid var(--border)}
+.prof-facts dt{color:var(--muted);font-size:14px;flex:none}.prof-facts dd{font-weight:700;text-align:end;overflow-wrap:anywhere}
+.prof-actions{display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.prof-actions .btn{min-height:46px}
+
+/* ---- Admin promotion management ---- */
+.promo-admin{border:1px solid var(--border);border-radius:20px;padding:20px;margin-bottom:26px;background:var(--surface)}
+.promo-admin h3{font-weight:900;font-size:18px}
+.promo-cols{display:grid;gap:18px;grid-template-columns:1fr;margin-top:14px}
+@media (min-width:860px){.promo-cols{grid-template-columns:1fr 1fr}}
+.pv{border-radius:16px;padding:22px 16px;text-align:center;color:#fff;background:radial-gradient(120% 100% at 50% 0%,var(--ink-2),var(--ink));min-height:180px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.pv b{font-size:24px;font-weight:800}.pv em{font-style:normal;color:var(--gold);font-size:17px;font-weight:600}.pv small{color:rgba(255,255,255,.75);font-size:12.5px;line-height:1.5}
+.pv .pv-inst{margin-top:6px}
+
+/* ---- Footer ---- */
+.foot2{display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center;font-size:14px;color:var(--muted)}
+.foot2 b{color:var(--text);font-size:15px}
+
+/* ---- polish pass ---- */
+:root{--grad-primary:linear-gradient(135deg,#7c4df0 0%,#6528dc 100%)}
+.finder-box input[type=search]::-webkit-search-cancel-button,.finder-box input[type=search]::-webkit-search-decoration{-webkit-appearance:none;display:none}
+.gcard-promo{margin-bottom:18px}.gcard-btn{margin-top:auto}
+.hero2-num{text-wrap:balance}
+html[dir=rtl] .hero2-num{font-size:clamp(34px,8.5vw,76px);line-height:1.25}
+.brand-text span{white-space:nowrap}
+html[dir=ltr] .topbar-inner{flex-direction:row-reverse}
+html[dir=ltr] .topnav{margin-inline-end:0;margin-inline-start:8px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+/* ==========================================================================
+   BRAND · PROMOTION EMBLEM · MDA SIGNATURE · SEARCH REFINEMENTS (appended last)
+   ========================================================================== */
+/* Sticky header must span the whole page (body was clamped to 100% height, which released it after one screen) */
+body{height:auto;min-height:100%}
+
+/* Header: institute logo */
+.brand{gap:12px}
+.brand-logo-img{width:44px;height:44px;flex:none;border-radius:14px;background:#fff;object-fit:contain;padding:2px;border:1px solid var(--stroke);box-shadow:0 4px 14px rgba(101,40,220,.28)}
+html.dark .brand-logo-img{border-color:rgba(255,255,255,.18);box-shadow:0 0 0 1px rgba(255,255,255,.06),0 6px 18px rgba(0,0,0,.55)}
+.prof-inst{padding-inline:50px}
+.prof-inst img{background:#fff;object-fit:contain;padding:2px;border-radius:9px}
+
+/* Hero: promotion emblem (default crest, or the logo uploaded by the super admin) */
+.hero2-emblem{width:clamp(132px,34vw,190px);aspect-ratio:1;display:grid;place-items:center;filter:drop-shadow(0 18px 32px rgba(0,0,0,.5))}
+.hero2-emblem svg,.hero2-emblem img{width:100%;height:100%;display:block;object-fit:contain}
+.hero2-emblem.is-custom img{border-radius:20px}
+.hero2 h1{margin-top:22px}
+.pv-logo{width:132px;aspect-ratio:1;margin:0 auto 14px;padding:10px;border-radius:20px;display:grid;place-items:center;background:radial-gradient(120% 100% at 50% 0%,var(--ink-2),var(--ink))}
+.pv-logo svg,.pv-logo img{width:100%;height:100%;object-fit:contain;display:block}
+.promo-logo-field{gap:8px}
+
+/* Search: exact registration number only */
+.finder-box input{letter-spacing:.02em}
+.finder-hint{min-height:1.6em;transition:color .2s}
+.finder-hint.is-bad{color:var(--error);font-weight:700}
+html.dark{--error:#fb7185}
+#searchResult{scroll-margin-top:96px}
+.ggrid:has(> .gcard:only-child){grid-template-columns:minmax(0,400px);justify-content:center}
+
+/* Footer: MDA signature */
+.foot-sign-row{display:flex;justify-content:center;margin-top:18px;padding-top:14px;border-top:1px dashed var(--stroke)}
+.mda-sign{display:inline-flex;align-items:center;gap:8px;height:32px;padding-inline:12px 5px;border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);
+  background:var(--surface);border:1px solid var(--stroke);box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s}
+.mda-mark{display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:999px;font-weight:900;font-size:11px;letter-spacing:.2em;padding-inline-end:calc(10px - .2em);color:#fff;background:linear-gradient(135deg,#6528dc 0%,#a34df0 55%,#d946ef 100%);box-shadow:0 4px 12px -4px rgba(101,40,220,.7)}
+.mda-wa{color:#1fa855;margin-inline-end:6px;transition:transform .25s var(--ease)}
+html.dark .mda-wa{color:#34d874}
+.mda-sign:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--text);box-shadow:0 10px 24px -12px rgba(101,40,220,.55)}
+.mda-sign:hover .mda-wa{transform:scale(1.18) rotate(-8deg)}
+.mda-sign:active{transform:scale(.97)}
+/* Theme precision: readable text on admin-chosen specialty colours in both themes */
+.spec-card-num{color:color-mix(in oklab,var(--card-color) 80%,#000)}
+.spec-card .badge{color:color-mix(in oklab,var(--card-color) 80%,#000)!important}
+html.dark .spec-card-num{color:color-mix(in oklab,var(--card-color) 55%,#fff)}
+html.dark .spec-card .badge{color:color-mix(in oklab,var(--card-color) 55%,#fff)!important}
+.finder-clear{color:#475569}
+html.dark .finder-clear{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -638,11 +819,12 @@ body::before{background:radial-gradient(800px 500px at 95% -8%,rgba(199,164,91,.
     <button class="icon-btn lang-switch no-print" id="btnLangToggle" title="Changer de langue / تغيير اللغة">FR</button>
     <button class="icon-btn" id="btnTheme" title="الوضع الليلي" data-i18n-title="theme_tooltip"></button>
     <div class="spacer"></div>
+    <nav class="topnav" aria-label="Navigation"><a href="#top" id="navHome" aria-current="true">Accueil</a><a href="#search" id="navGrads">Diplômés</a></nav>
     <a href="#top" class="brand">
       <div class="brand-text center" style="align-items:flex-end">
-        <b>ISCAE</b><span id="brandPromoLabel">PROMOTION</span>
+        <b>ISCAE</b><span id="brandPromoLabel">PROMOTION 18</span>
       </div>
-      <div class="brand-logo">ISCAE</div>
+      <img class="brand-logo-img" src="icons/institute-logo.jpg" alt="ISCAE — المعهد العالي للمحاسبة وإدارة المؤسسات" width="44" height="44" decoding="async" />
     </a>
   </div>
 </header>
@@ -650,24 +832,33 @@ body::before{background:radial-gradient(800px 500px at 95% -8%,rgba(199,164,91,.
 <main id="top">
   <!-- ======================= PUBLIC PAGE ======================= -->
   <section id="pagePublic">
-    <div class="hero-shell">
-      <div class="hero-orbit hero-orbit-one"></div><div class="hero-orbit hero-orbit-two"></div>
-      <div class="container hero-content">
-        <div class="institution-lockup"><div class="brand-logo hero-logo">ISCAE</div><div><span class="eyebrow">INSTITUT SUPÉRIEUR DE COMPTABILITÉ</span><strong>ET D’ADMINISTRATION DES ENTREPRISES</strong></div></div>
-        <div class="hero-kicker"><span class="dot"></span><span>ISCAE — Mauritanie</span></div>
-        <h1><span id="heroPromoNumber">18ème</span> <em>Promotion</em></h1>
-        <div id="heroPromoName" class="hero-promo-name hidden"></div>
-        <p class="hero-lede" data-i18n="hero_subtitle">Retrouvez les diplômés de la 18ème promotion de l’ISCAE.</p>
-        <div class="hero-actions"><a href="#directory" class="btn btn-primary hero-cta"><span data-i18n="search_btn">Rechercher un diplômé</span><span aria-hidden="true">↗</span></a><div class="hero-note"><span class="hero-note-mark">◆</span><span data-i18n="hero_note">Une identité académique. Une promotion. Un avenir.</span></div></div>
+    <header class="hero2">
+      <div class="hero2-bg" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+      <div class="hero2-in">
+        <div class="hero2-emblem" id="heroEmblem" role="img" aria-label="Promotion"></div>
+        <h1 id="heroTitle"><span class="hero2-num" id="heroNumber">18ème Promotion</span><span class="hero2-name" id="heroName" hidden></span></h1>
+        <div><p class="hero2-inst" id="heroInst"></p><p class="hero2-country" id="heroCountry"></p><p class="hero2-soon" id="heroSoon" hidden></p></div>
+        <a class="btn hero2-cta" id="heroCta" href="#search"></a>
+        <div id="heroInstall" class="hidden" style="margin-top: 24px; animation: fadeUp 0.8s ease 0.2s both;">
+          <button class="btn btn-emerald" id="btnHeroInstall" style="padding: 14px 28px; font-size: 16px; border-radius: 20px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12"/><polyline points="7 11 12 16 17 11"/><path d="M5 20h14"/></svg>
+            <span data-i18n="btn_install_now">تثبيت التطبيق الآن</span>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="container public-content" id="directory">
-      <div class="directory-intro"><div><span class="eyebrow" data-i18n="directory_eyebrow">ANNUAIRE ACADÉMIQUE</span><h2 data-i18n="directory_title">Retrouvez les diplômés de la 18ème Promotion</h2></div><p data-i18n="directory_text">Recherchez par nom ou matricule pour consulter une fiche académique officielle.</p></div>
-      <div class="search-wrap search-wrap-premium">
-        <div class="search-field"><svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/></svg><input id="searchInput" placeholder="Rechercher par nom ou matricule…" autocomplete="off" dir="auto" maxlength="80" spellcheck="false" aria-label="Rechercher un diplômé" /><button class="search-clear hidden" id="searchClear" type="button" aria-label="Effacer">×</button></div>
-        <button class="btn btn-primary" id="btnSearch"><span data-i18n="search_btn">Rechercher</span><span aria-hidden="true">↗</span></button>
+    </header>
+    <div class="container">
+      <div class="finder" id="search">
+        <h2 class="finder-title" id="finderTitle"></h2>
+        <div class="finder-box" role="search">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/></svg>
+          <input id="searchInput" type="search" dir="ltr" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="16" enterkeyhint="search" />
+          <button type="button" class="finder-clear" id="searchClear" hidden>×</button>
+          <button type="button" class="btn btn-primary" id="btnSearch" data-i18n="search_btn" style="min-height:48px">بحث</button>
+        </div>
+        <p class="finder-hint" id="searchHint"></p>
       </div>
-      <p class="search-hint muted" id="searchHint"></p><div id="searchResult"></div>
+      <div id="searchResult" aria-live="polite"></div>
 
       <!-- Stats -->
       <div class="stats-grid" id="statsGrid"></div>
@@ -675,7 +866,7 @@ body::before{background:radial-gradient(800px 500px at 95% -8%,rgba(199,164,91,.
       <!-- Events -->
       <div class="section-title">
         <h2 data-i18n="events_title">فعاليات الدفعة</h2>
-        <p id="eventsSubtitle"></p>
+        <p id="eventsSubtitle">احتفالان كبيران لتكريم خريجي الدفعة 18</p>
       </div>
       <div class="events-grid" id="eventsGrid"></div>
 
@@ -703,7 +894,14 @@ body::before{background:radial-gradient(800px 500px at 95% -8%,rgba(199,164,91,.
 <footer>
   <div class="container footer-inner">
     <button class="btn btn-ghost btn-sm" id="btnFooterLogin" data-i18n="footer_login">دخول المشرفين ←</button>
-    <div>© <span id="footerYear">2026</span> ISCAE — <span id="footerPromoLabel">—</span></div>
+    <div class="foot2"><b>ISCAE — <span id="footerPromoLabel">18ème Promotion</span></b><span id="footerInst"></span><span>Mauritanie · © <span id="footerYear">2026</span> <span id="footerRights"></span></span></div>
+  </div>
+  <div class="container foot-sign-row no-print">
+    <a class="mda-sign" id="mdaSign" href="https://wa.me/22220479962" target="_blank" rel="noopener noreferrer" title="WhatsApp · +222 20 47 99 62" aria-label="MDA — WhatsApp +222 20 47 99 62">
+      <span class="mda-by" data-i18n="foot_by">تصميم وتطوير</span>
+      <span class="mda-mark" aria-hidden="true">MDA</span>
+      <svg class="mda-wa" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.45 9.45 0 0 1-4.82-1.32l-.35-.2-3.58.94.96-3.49-.23-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.21 4.24-9.45 9.46-9.45 2.52 0 4.9.99 6.68 2.77a9.4 9.4 0 0 1 2.76 6.68c0 5.21-4.24 9.46-9.42 9.46zM20.52 3.45A11.4 11.4 0 0 0 12.05 0C5.73 0 .59 5.14.59 11.46c0 2.02.53 3.99 1.53 5.73L.5 23.5l6.46-1.69a11.44 11.44 0 0 0 5.09 1.2h.01c6.32 0 11.46-5.14 11.46-11.46 0-3.06-1.19-5.94-3.35-8.1z" transform="translate(0 0)"/></svg>
+    </a>
   </div>
 </footer>
 
@@ -885,24 +1083,15 @@ const I18N = {
   logout_tooltip:{ar:"تسجيل الخروج",fr:"Déconnexion"},
   install_tooltip:{ar:"تثبيت التطبيق",fr:"Installer l'application"},
   theme_tooltip:{ar:"الوضع الليلي",fr:"Mode sombre"},
-  hero_congrats:{ar:"مبروك",fr:"Félicitations"},  hero_note:{ar:"هوية أكاديمية. دفعة واحدة. مستقبل واعد.",fr:"Une identité académique. Une promotion. Un avenir."},
-  directory_eyebrow:{ar:"الدليل الأكاديمي",fr:"ANNUAIRE ACADÉMIQUE"},
-  directory_title:{ar:"ابحث عن خريجي الدفعة الثامنة عشر",fr:"Retrouvez les diplômés de la 18ème Promotion"},
-  directory_text:{ar:"ابحث بالاسم أو رقم التسجيل لعرض البطاقة الأكاديمية الرسمية.",fr:"Recherchez par nom ou matricule pour consulter une fiche académique officielle."},
-  profile_public:{ar:"ملف أكاديمي رسمي",fr:"Fiche académique officielle"},
-  view_profile:{ar:"عرض الملف",fr:"Voir le profil"},
-  results_found:{ar:"تم العثور على {n} نتيجة",fr:"{n} résultat(s) trouvé(s)"},
-  search_min_chars:{ar:"اكتب حرفين على الأقل للبحث",fr:"Saisissez au moins deux caractères pour rechercher"},
-  search_hint_directory:{ar:"ابحث بالاسم أو رقم التسجيل — مثال: I21567",fr:"Recherchez par nom ou matricule — exemple : I21567"},
-
-  hero_subtitle:{ar:"ابحث عن خريجي الدفعة الثامنة عشر من المعهد العالي للمحاسبة وإدارة المؤسسات.",fr:"Retrouvez les diplômés de la 18ème promotion de l’Institut Supérieur de Comptabilité et d’Administration des Entreprises."},
+  hero_congrats:{ar:"مبروك",fr:"Félicitations"},
+  hero_subtitle:{ar:"ابحث عن معلوماتك كخريج وتابع استعدادات حفل توزيع شهادات التكريم.",fr:"Recherchez vos informations de lauréat et suivez les préparatifs de la cérémonie de remise des certificats d'honneur."},
   search_btn:{ar:"بحث",fr:"Rechercher"},
   search_hint_prefix:{ar:"الصيغة المطلوبة: الحرف",fr:"Format requis : la lettre"},
   search_hint_suffix:{ar:"متبوعاً بخمسة أرقام — مثال:",fr:"suivie de 5 chiffres — exemple :"},
   search_enter_first:{ar:"أدخل رقم التسجيل أولاً",fr:"Veuillez d'abord saisir le numéro d'inscription"},
   search_invalid_format:{ar:"صيغة رقم التسجيل غير صحيحة. استخدم الحرف I متبوعاً بخمسة أرقام، مثل I21567",fr:"Format du numéro incorrect. Utilisez la lettre I suivie de 5 chiffres, ex. I21567"},
   search_no_results_title:{ar:"لا توجد نتائج",fr:"Aucun résultat"},
-  search_no_results_text:{ar:"لم يتم العثور على خريج يطابق «{q}».",fr:"Aucun diplômé ne correspond à « {q} »."},
+  search_no_results_text:{ar:"لم يتم العثور على خريج بهذا رقم التسجيل: {q}",fr:"Aucun lauréat trouvé avec le numéro d'inscription : {q}"},
   result_verified:{ar:"نتيجة موثّقة",fr:"Résultat vérifié"},
   result_congrats:{ar:"تم العثور على بياناتك بنجاح — نتشرف بتكريمكم ضمن {promo}",fr:"Vos informations ont été trouvées — nous sommes honorés de vous célébrer au sein de {promo}"},
   label_specialty:{ar:"التخصص",fr:"Spécialité"},
@@ -1178,24 +1367,139 @@ function t(key, vars) {
   return str;
 }
 
-function promotionNumber() {
-  const raw = Number(state.settings && state.settings.promotion_number);
-  return Number.isFinite(raw) && raw > 0 ? String(raw) : "18";
+function brandName() {
+  const v = (state.settings && state.settings.platform_name || "").trim();
+  return v || "ISCAE 18ème Promotion";
 }
-function promotionName() {
-  const s = state.settings || {};
-  const value = state.lang === "fr" ? s.promotion_name_fr : s.promotion_name_ar;
-  if (value && String(value).trim()) return String(value).trim();
-  // Legacy installations may still expose only promotion_label. Never use the old shipped placeholder.
-  const legacy = String(s.promotion_label || "").trim();
-  if (s.promotion_number === undefined && legacy && !/^الدفعة\s*18$|^promo(?:tion)?\s*18$/i.test(legacy)) return legacy;
-  return "";
+/* ------------------------- PROMOTION — مصدر واحد (رقم ≠ اسم) -------------------------
+   الرقم (18) واسم الدفعة (FR/AR، NULL حتى يحدده المشرف الرئيسي) يأتيان فقط من
+   public.promotion_settings. كل واجهة تستعمل الدوال أدناه — لا نص مكرَّر. */
+const AR_ORD = {1:"الأولى",2:"الثانية",3:"الثالثة",4:"الرابعة",5:"الخامسة",6:"السادسة",7:"السابعة",8:"الثامنة",9:"التاسعة",10:"العاشرة",11:"الحادية عشر",12:"الثانية عشر",13:"الثالثة عشر",14:"الرابعة عشر",15:"الخامسة عشر",16:"السادسة عشر",17:"السابعة عشر",18:"الثامنة عشر",19:"التاسعة عشر",20:"العشرون"};
+state.promo = { number: 18, name_fr: null, name_ar: null, logo: null };
+function promoNumberLabel(lang = state.lang, n = state.promo.number) {
+  return lang === "fr" ? `${n}${n === 1 ? "ère" : "ème"} Promotion` : `الدفعة ${AR_ORD[n] || n}`;
+}
+function promoName(lang = state.lang) {
+  return String((lang === "fr" ? state.promo.name_fr : state.promo.name_ar) || "").trim();
 }
 function promoLabel() {
-  const n = promotionNumber();
-  return state.lang === "fr" ? `${n}ème Promotion` : `الدفعة ${n}`;
+  const nm = promoName();
+  return nm ? `${promoNumberLabel()} — ${nm}` : promoNumberLabel();
 }
-function brandName() { return "ISCAE"; }
+async function loadPromotion() {
+  try {
+    const { data, error } = await db.from("promotion_settings").select("*").eq("id", 1).maybeSingle();
+    state.promoReady = !error && !!data;
+    if (state.promoReady) state.promo = { number: Number(data.promotion_number) || 18, name_fr: data.promotion_name_fr || null, name_ar: data.promotion_name_ar || null, logo: safePromoLogo(data.promotion_logo) };
+  } catch (e) { state.promoReady = false; }
+}
+
+
+/* ------------------------- PROMOTION LOGO — شعار الدفعة (افتراضي احترافي، يستبدله المشرف الرئيسي) ------------------------- */
+/** Accept only data:image (png/jpeg/webp) or https URLs. */
+function safePromoLogo(v) {
+  const x = String(v || "").trim();
+  return /^(data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+|https:\/\/[^\s"'<>]+)$/.test(x) ? x : null;
+}
+let __emblemUid = 0;
+/** Default emblem: crest with laurel wreath, mortarboard and the promotion number (always in sync with promotion_settings). */
+function promoEmblemSVG(n, lang = state.lang) {
+  const id = "pe" + (++__emblemUid), num = String(n);
+  const word = lang === "fr" ? "PROMOTION" : "الدفعة";
+  const size = num.length >= 3 ? 40 : num.length === 2 ? 58 : 66;
+  const leaf = (side, i) => {
+    const th = (32 + i * (86 / 8)) * Math.PI / 180, r = 72;                 // angle from the bottom, going up each side
+    const x = 100 + side * r * Math.sin(th), y = 100 + r * Math.cos(th);
+    const phi = Math.atan2(-side * Math.cos(th), -Math.sin(th)) * 180 / Math.PI + side * -22;   // align with the arc, tips slightly outward
+    return `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="4.4" ry="10.5" transform="rotate(${phi.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})" fill="url(#${id}g)" opacity="${(0.98 - i * 0.03).toFixed(2)}"/>`;
+  };
+  let leaves = "";
+  for (let i = 0; i < 9; i++) { leaves += leaf(1, i) + leaf(-1, i); }
+  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+  <defs>
+    <linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dc9b"/><stop offset=".5" stop-color="#c9a24a"/><stop offset="1" stop-color="#8f6b1f"/></linearGradient>
+    <radialGradient id="${id}b" cx="50%" cy="28%" r="80%"><stop offset="0" stop-color="#4a24a8"/><stop offset=".62" stop-color="#2a1163"/><stop offset="1" stop-color="#180a42"/></radialGradient>
+    <linearGradient id="${id}r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3dc9b"/><stop offset="1" stop-color="#b98d34"/></linearGradient>
+    <filter id="${id}s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity=".45"/></filter>
+  </defs>
+  <g filter="url(#${id}s)">
+    <circle cx="100" cy="100" r="94" fill="url(#${id}b)"/>
+    <circle cx="100" cy="100" r="94" fill="none" stroke="url(#${id}g)" stroke-width="4"/>
+    <circle cx="100" cy="100" r="86" fill="none" stroke="#c9a24a" stroke-opacity=".45" stroke-width="1"/>
+  </g>
+  ${leaves}
+  <g transform="translate(100 47)">
+    <path d="M-27 6 v13 c0 9 12 15 27 15 s27-6 27-15 V6 L0 17z" fill="url(#${id}g)" opacity=".92"/>
+    <path d="M0-22 L46 -2 0 18 -46 -2z" fill="url(#${id}g)"/>
+    <path d="M0-22 L46 -2 0 18 -46 -2z" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width=".8"/>
+    <path d="M40 0 v22" stroke="url(#${id}g)" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="40" cy="25" r="3.4" fill="url(#${id}g)"/>
+  </g>
+  <text x="100" y="${size >= 58 ? 122 : 118}" text-anchor="middle" font-family="'Plus Jakarta Sans','Tajawal',system-ui,sans-serif" font-weight="800" font-size="${size}" fill="#fff" letter-spacing="-1">${esc(num)}</text>
+  <g>
+    <path d="M52 134 H148 L155 146 L148 158 H52 L45 146 Z" fill="url(#${id}r)"/>
+    <path d="M52 134 H148 L155 146 L148 158 H52 L45 146 Z" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width=".8"/>
+    <text x="100" y="151" text-anchor="middle" font-family="'Plus Jakarta Sans','Tajawal',system-ui,sans-serif" font-weight="800" font-size="${lang === "fr" ? 11.5 : 13}" fill="#180a42" letter-spacing="${lang === "fr" ? 2.4 : 0}">${esc(word)}</text>
+  </g>
+  <text x="100" y="176" text-anchor="middle" font-family="'Plus Jakarta Sans',system-ui,sans-serif" font-weight="700" font-size="9" fill="#f3dc9b" fill-opacity=".85" letter-spacing="3">ISCAE</text>
+</svg>`;
+}
+/** Inner HTML for a logo slot: the custom logo if the super admin uploaded one, else the default emblem. */
+function promoLogoInner(logo = state.promo.logo, n = state.promo.number) {
+  const safe = safePromoLogo(logo);
+  return safe
+    ? `<img src="${esc(safe)}" alt="" decoding="async" onerror="this.parentNode.innerHTML=promoEmblemSVG(state.promo.number)" />`
+    : promoEmblemSVG(n);
+}
+function renderPromoLogo() {
+  const el = $("#heroEmblem"); if (!el) return;
+  el.innerHTML = promoLogoInner();
+  el.classList.toggle("is-custom", !!safePromoLogo(state.promo.logo));
+  el.setAttribute("aria-label", promoLabel());
+}
+
+Object.assign(I18N, {
+  hero_inst:{ar:"المعهد العالي للمحاسبة وإدارة المؤسسات",fr:"Institut Supérieur de Comptabilité et d'Administration des Entreprises"},
+  hero_country:{ar:"ISCAE — موريتانيا",fr:"ISCAE — Mauritanie"},
+  hero_cta:{ar:"البحث عن خريج",fr:"Rechercher un diplômé"},
+  hero_soon:{ar:"سيُعلَن عن اسم الدفعة قريباً.",fr:"Le nom de la promotion sera annoncé prochainement."},
+  finder_title:{ar:"ابحث عن خريجي {promo}",fr:"Retrouvez les diplômés de la {promo}"},
+  search_ph:{ar:"أدخل رقم التسجيل كاملاً، مثال: I21567",fr:"N° d'inscription, ex. I21567"},
+  search_hint2:{ar:"يظهر الخريج فقط عند إدخال رقم التسجيل كاملاً بالصيغة I21567.",fr:"Le diplômé s'affiche uniquement avec le numéro d'inscription complet, au format I21567."},
+  search_clear:{ar:"مسح البحث",fr:"Effacer la recherche"},
+  nav_home:{ar:"الرئيسية",fr:"Accueil"},nav_grads:{ar:"الخريجون",fr:"Diplômés"},
+  n_results:{ar:"{n} خريج",fr:"{n} diplômé(s)"},
+  show_more:{ar:"عرض المزيد",fr:"Afficher plus"},
+  empty_title:{ar:"لم يتم العثور على الخريج",fr:"Aucun diplômé trouvé"},
+  empty_text:{ar:"لا يوجد خريج بهذا الرقم. تحقق من رقم التسجيل ثم حاول مرة أخرى.",fr:"Aucun diplômé avec ce numéro. Vérifiez le numéro d'inscription et réessayez."},
+  view_profile:{ar:"عرض الملف",fr:"Voir le profil"},
+  lbl_matricule:{ar:"الرقم الجامعي",fr:"Matricule"},
+  share_profile:{ar:"مشاركة الملف",fr:"Partager le profil"},
+  link_copied:{ar:"تم نسخ الرابط",fr:"Lien copié"},
+  close:{ar:"إغلاق",fr:"Fermer"},
+  meta_desc:{ar:"منصة ISCAE الرسمية لتخرّج {promo}: البحث عن الخريجين والاطلاع على ملفاتهم الأكاديمية وحفل التخرج.",fr:"Plateforme officielle de remise des diplômes de l'ISCAE — {promo} : retrouvez les diplômés et suivez la cérémonie."},
+  foot_rights:{ar:"جميع الحقوق محفوظة",fr:"Tous droits réservés"},
+  foot_by:{ar:"تصميم وتطوير",fr:"Conçu et développé par"},
+  search_hint_bad:{ar:"أدخل رقم التسجيل كاملاً وبالصيغة الصحيحة، مثل I21567.",fr:"Saisissez le numéro d'inscription complet au bon format, par exemple I21567."},
+  promo_logo:{ar:"شعار الدفعة",fr:"Logo de la promotion"},
+  promo_logo_hint:{ar:"يظهر بشكل بارز في الصفحة الرئيسية. PNG أو JPG أو WEBP — يُفضَّل خلفية شفافة. إن لم تُرفع صورة يُعرض الشعار الافتراضي.",fr:"S'affiche en évidence sur la page d'accueil. PNG, JPG ou WEBP — fond transparent conseillé. Sans image, le logo par défaut est affiché."},
+  promo_logo_upload:{ar:"رفع شعار الدفعة",fr:"Téléverser le logo"},
+  promo_logo_reset:{ar:"استعادة الشعار الافتراضي",fr:"Rétablir le logo par défaut"},
+  promo_logo_pending:{ar:"شعار جديد جاهز — اضغط «حفظ» لاعتماده.",fr:"Nouveau logo prêt — cliquez sur « Enregistrer » pour l'appliquer."},
+  promo_logo_bad:{ar:"ملف غير صالح: اختر صورة PNG أو JPG أو WEBP لا يتجاوز حجمها 5 ميغابايت.",fr:"Fichier invalide : choisissez une image PNG, JPG ou WEBP de 5 Mo maximum."},
+  promo_logo_missing:{ar:"تم حفظ الاسم والرقم، لكن عمود الشعار غير موجود: نفّذ PROMOTION.sql المحدَّث في Supabase.",fr:"Nom et numéro enregistrés, mais la colonne du logo est absente : exécutez le PROMOTION.sql mis à jour dans Supabase."},
+  promo_mgmt:{ar:"إدارة الدفعة",fr:"Gestion de la promotion"},
+  promo_number:{ar:"رقم الدفعة",fr:"Numéro de la promotion"},
+  promo_name_fr:{ar:"اسم الدفعة — الفرنسية",fr:"Nom de la promotion — Français"},
+  promo_name_ar:{ar:"اسم الدفعة — العربية",fr:"اسم الدفعة — العربية"},
+  promo_preview:{ar:"معاينة مباشرة",fr:"Aperçu en direct"},
+  promo_save:{ar:"حفظ",fr:"Enregistrer"},
+  promo_saved:{ar:"تم حفظ هوية الدفعة",fr:"Identité de la promotion enregistrée"},
+  promo_missing:{ar:"جدول promotion_settings غير موجود: نفّذ PROMOTION.sql في Supabase أولاً.",fr:"Table promotion_settings absente : exécutez d'abord PROMOTION.sql dans Supabase."},
+  promo_denied:{ar:"غير مصرّح: للمشرف الرئيسي فقط.",fr:"Non autorisé : administrateur principal uniquement."},
+  promo_hint:{ar:"اترك اسم الدفعة فارغاً إذا لم يُحدَّد بعد — لن يظهر أي اسم للزوار.",fr:"Laissez le nom vide s'il n'est pas encore défini — aucun nom ne sera affiché aux visiteurs."}
+});
+
 
 
 
@@ -1271,27 +1575,32 @@ function applyStaticI18n() {
   $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
   $$("[data-i18n-title]").forEach(el => { el.setAttribute("title", t(el.dataset.i18nTitle)); });
   const hint = $("#searchHint");
-  if (hint) hint.innerHTML = t("search_hint_directory");
-  const searchInput = $("#searchInput");
-  if (searchInput) searchInput.placeholder = state.lang === "fr" ? "Rechercher par nom ou matricule…" : "البحث بالاسم أو رقم التسجيل…";
+  if (hint && !($("#searchInput") && $("#searchInput").value)) hint.textContent = t("search_hint2");
 }
 
-/** Refresh the platform/promotion name shown across the header, hero, events section and footer. */
+function setMeta(sel, val) { const m = document.querySelector(sel); if (m) m.setAttribute("content", val); }
 function applyBranding() {
-  const brand = brandName(), promo = promoLabel();
-  document.title = `${brand} — ${t("hero_subtitle").split(".")[0]}`;
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.setAttribute("content", `${brand} — ${t("hero_subtitle")}`);
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) ogTitle.setAttribute("content", `${brand} — ${t("hero_subtitle").split(".")[0]}`);
-  if ($("#brandPromoLabel")) $("#brandPromoLabel").textContent = `${promotionNumber()} — ${state.lang === "fr" ? "PROMOTION" : "الدفعة"}`;
-  if ($("#heroPillText")) $("#heroPillText").textContent = brand;
-  if ($("#heroPromoLabel")) $("#heroPromoLabel").textContent = promo;
-  if ($("#heroPromoNumber")) $("#heroPromoNumber").textContent = promotionNumber() + (state.lang === "fr" ? "ème" : "");
-  if ($("#heroPromoName")) { const name = promotionName(); $("#heroPromoName").textContent = name; $("#heroPromoName").classList.toggle("hidden", !name); }
-  if ($("#eventsSubtitle")) $("#eventsSubtitle").textContent = t("events_subtitle", { promo });
-  if ($("#footerPromoLabel")) $("#footerPromoLabel").textContent = promo;
-  if ($("#footerYear")) $("#footerYear").textContent = new Date().getFullYear();
+  const num = promoNumberLabel(), name = promoName(), promo = promoLabel();
+  const title = `ISCAE — ${num}${name ? ` — ${name}` : ""}`;
+  document.title = title;
+  setMeta('meta[name="description"]', t("meta_desc", { promo }));
+  setMeta('meta[property="og:title"]', title);
+  setMeta('meta[property="og:description"]', t("meta_desc", { promo }));
+  const set = (id, txt) => { const el = $(id); if (el) el.textContent = txt; };
+  set("#brandPromoLabel", state.lang === "fr" ? `Promo ${state.promo.number}` : `الدفعة ${state.promo.number}`);
+  set("#heroNumber", num);
+  const hn = $("#heroName"); if (hn) { hn.textContent = name; hn.hidden = !name; }
+  const soon = $("#heroSoon"); if (soon) { soon.textContent = t("hero_soon"); soon.hidden = !!(state.promo.name_fr || state.promo.name_ar); }
+  renderPromoLogo();
+  set("#heroInst", t("hero_inst")); set("#heroCountry", t("hero_country")); set("#heroCta", t("hero_cta"));
+  set("#finderTitle", t("finder_title", { promo: num }));
+  set("#navHome", t("nav_home")); set("#navGrads", t("nav_grads"));
+  const inp = $("#searchInput"); if (inp) { inp.placeholder = t("search_ph"); inp.setAttribute("aria-label", t("search_ph")); }
+  const clr = $("#searchClear"); if (clr) clr.setAttribute("aria-label", t("search_clear"));
+  set("#eventsSubtitle", t("events_subtitle", { promo }));
+  set("#footerPromoLabel", promo); set("#footerRights", t("foot_rights"));
+  set("#footerInst", t("hero_inst"));
+  set("#footerYear", new Date().getFullYear());
 }
 
 /** Re-render everything that depends on language/branding without losing app state. */
@@ -1303,6 +1612,7 @@ function refreshChrome() {
   renderStats();
   renderEvents();
   if ($("#searchInput") && $("#searchInput").value.trim()) doSearch();
+  if ($("#profileOverlay")) routeFromHash();
   if (state.me && !$("#pageDash").classList.contains("hidden")) renderDash();
 }
 
@@ -1351,9 +1661,10 @@ async function loadPublicData() {
   if (sp.error) console.error(sp.error);
   state.specialties = sp.data || [];
   state.students    = st.data || [];
-  state.settings    = se.data || { promotion_number: 18, promotion_name_fr: null, promotion_name_ar: null, cat_a_limit: 100, cat_b_limit: 100, cat_c_limit: 150, graduation_date: null, night_party_date: null };
-  if (state.settings.promotion_number === undefined) state.settings.promotion_number = 18;
+  state.settings    = se.data || { cat_a_limit: 100, cat_b_limit: 100, cat_c_limit: 150, graduation_date: null, night_party_date: null };
+  await loadPromotion();
   await loadCeremonies();
+  state.publicLoaded = true;
 }
 
 /** الحفلات + ألوان البطاقات (لا يُعطّل الموقع إذا لم تُنفَّذ الترقية بعد). */
@@ -1559,65 +1870,218 @@ setInterval(tickCountdowns, 1000);
 
 /* ------------------------- 8. PUBLIC SEARCH ------------------------- */
 /** Registration numbers must be the letter I followed by exactly 5 digits, e.g. I21567. */
+/* ------------------------- 8. SEARCH — annuaire des diplômés ------------------------- */
 const REG_NUMBER_PATTERN = /^I\d{5}$/;
+const PAGE_SIZE = 24;
+let searchTimer = null, searchSeq = 0, shown = PAGE_SIZE, lastList = [];
 
-function initials(name) {
-  return String(name || "•").trim().split(/\s+/).slice(0, 2).map(part => part[0]).join("").toUpperCase() || "•";
+const norm = s => String(s || "").normalize("NFD")
+  .replace(/[\u0300-\u036f\u064B-\u065F\u0670\u0640]/g, "")
+  .replace(/[إأآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").toLowerCase().trim();
+
+function enrichStudent(st) {
+  if (!st) return st;
+  const sp = state.specialties.find(x => x.id === st.specialty_id);
+  return { ...st, specialty_name: st.specialty_name || (sp ? sp.name : ""), category: st.category || categoryOf(st.order_index) };
 }
-function renderGraduateCard(st, index = 0) {
-  const cat = st.category || categoryOf(st.order_index);
-  const spec = st.specialty_name || specName(st.specialty_id);
-  const photo = photoUrl(st);
-  return `<article class="graduate-card" style="--delay:${index * 70}ms">
-    <div class="graduate-card-top"><span class="verified-mark">✓ ${t("result_verified")}</span><span class="academic-chip">${esc(promoLabel())}</span></div>
-    <div class="graduate-card-main"><div class="graduate-avatar">${photo ? `<img src="${esc(photo)}" alt="${esc(st.full_name || "")}" loading="lazy" />` : `<span>${esc(initials(st.full_name))}</span>`}</div>
-    <div class="graduate-identity"><h3>${esc(st.full_name || "—")}</h3><span class="matricule">${esc(st.registration_number || "—")}</span></div></div>
-    <div class="graduate-meta">${spec ? `<div><small>${t("label_specialty")}</small><strong>${esc(spec)}</strong></div>` : ""}${st.order_index ? `<div><small>${t("label_order")}</small><strong>#${esc(st.order_index)}</strong></div>` : ""}${cat ? `<div><small>${t("label_category")}</small><strong>${esc(cat)}</strong></div>` : ""}</div>
-    <div class="graduate-card-foot"><span>${t("profile_public")}</span><button type="button" class="profile-link" data-profile-id="${esc(st.id || st.registration_number || "")}">${t("view_profile")} <span aria-hidden="true">↗</span></button></div>
+function matchStudents(q) {
+  const tokens = norm(q).split(/\s+/).filter(Boolean);
+  if (!tokens.length) return [];
+  const out = [];
+  for (const s of state.students) {
+    const reg = norm(s.registration_number), name = norm(s.full_name);
+    const hay = reg + " " + name;
+    if (!tokens.every(tk => hay.includes(tk))) continue;
+    const score = reg === tokens[0] ? 0 : name.startsWith(tokens[0]) ? 1 : reg.startsWith(tokens[0]) ? 1 : 2;
+    out.push({ s, score });
+  }
+  return out.sort((a, b) => a.score - b.score || (a.s.full_name || "").localeCompare(b.s.full_name || "")).map(x => enrichStudent(x.s));
+}
+function initials(name) {
+  const w = String(name || "").trim().split(/\s+/).filter(Boolean);
+  if (!w.length) return "•";
+  return (w[0][0] + (w.length > 1 ? w[w.length - 1][0] : "")).toUpperCase();
+}
+function hueOf(str) { let h = 0; for (const c of String(str)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return 250 + (h % 36); }
+function avatarHTML(st, cls) {
+  const u = photoUrl(st);
+  return `<div class="gav ${cls || ""}" style="--h:${hueOf(st.registration_number || st.full_name)}">${u
+    ? `<img src="${esc(u)}" alt="${esc(st.full_name || "")}" loading="lazy" decoding="async" onerror="this.remove()" />` : ""}<span ${u ? 'style="position:absolute;z-index:-1"' : ""} aria-hidden="true">${esc(initials(st.full_name))}</span></div>`;
+}
+function skeletons(n) { return `<div class="ggrid" aria-hidden="true">${Array.from({ length: n }, () => `<div class="sk"></div>`).join("")}</div>`; }
+function cardHTML(st, i) {
+  return `<article class="gcard" data-reg="${esc(st.registration_number)}" style="--i:${Math.min(i, 11)}">
+    <div class="gcard-band"></div>${avatarHTML(st)}
+    <h3>${esc(st.full_name)}</h3>
+    <span class="gcard-mat" dir="ltr" title="${esc(t("lbl_matricule"))}">${esc(st.registration_number)}</span>
+    ${st.specialty_name ? `<p class="gcard-spec">${esc(st.specialty_name)}</p>` : ""}
+    <p class="gcard-promo">${esc(promoNumberLabel())}</p>
+    <button type="button" class="btn gcard-btn" data-reg="${esc(st.registration_number)}">${t("view_profile")}</button>
   </article>`;
 }
-function renderSearchResults(rows, query) {
+function renderResults() {
   const box = $("#searchResult");
-  if (!rows.length) { box.innerHTML = `<div class="empty-search glass"><div class="empty-search-icon">⌕</div><h3>${t("search_no_results_title")}</h3><p>${t("search_no_results_text", { q: esc(query) })}</p></div>`; return; }
-  box.innerHTML = `<div class="results-heading"><span>${t("results_found", { n: rows.length })}</span><span class="results-line"></span></div><div class="graduate-grid">${rows.slice(0, 24).map(renderGraduateCard).join("")}</div>`;
-  $$('[data-profile-id]', box).forEach(btn => btn.onclick = () => {
-    const st = rows.find(x => String(x.id || x.registration_number) === String(btn.dataset.profileId));
-    if (st) openProfile(st);
-  });
-}
-function openProfile(st) {
-  const cat = st.category || categoryOf(st.order_index), photo = photoUrl(st), spec = st.specialty_name || specName(st.specialty_id);
-  const m = openModal(`<div class="modal modal-profile"><div class="profile-cover"></div><div class="profile-body"><button class="profile-close" data-close aria-label="${t("btn_close")}">×</button><div class="profile-avatar">${photo ? `<img src="${esc(photo)}" alt="${esc(st.full_name || "")}" />` : `<span>${esc(initials(st.full_name))}</span>`}</div><span class="verified-mark">✓ ${t("result_verified")}</span><h2>${esc(st.full_name || "—")}</h2><p class="profile-matricule">${esc(st.registration_number || "—")}</p><div class="profile-facts">${spec ? `<div><small>${t("label_specialty")}</small><strong>${esc(spec)}</strong></div>` : ""}${st.order_index ? `<div><small>${t("label_order")}</small><strong>#${esc(st.order_index)}</strong></div>` : ""}${cat ? `<div><small>${t("label_category")}</small><strong>${esc(cat)}</strong></div>` : ""}${sashName(st) ? `<div><small>${t("label_sash_name")}</small><strong>${esc(sashName(st))}</strong></div>` : ""}</div><div class="profile-promo">${esc(promoLabel())}</div></div></div>`);
-  m.querySelector("[data-close]").onclick = closeModals;
-}
-async function doSearch() {
-  const raw = $("#searchInput").value.trim();
-  const q = raw.toLocaleLowerCase();
-  const box = $("#searchResult");
-  if (!raw) { box.innerHTML = ""; return; }
-  if (q.length < 2) { box.innerHTML = `<div class="search-tip">${t("search_min_chars")}</div>`; return; }
-  if ($("#searchHint")) $("#searchHint").classList.remove("err");
-  box.innerHTML = `<div class="skeleton-grid">${[1,2,3].map(() => `<div class="skeleton-card"></div>`).join("")}</div>`;
-  const matches = state.students.filter(st => {
-    const name = String(st.full_name || "").toLocaleLowerCase();
-    const reg = String(st.registration_number || "").toLocaleLowerCase();
-    return name.includes(q) || reg.includes(q);
-  }).map(st => ({ ...st, specialty_name: st.specialty_name || specName(st.specialty_id), category: st.category || categoryOf(st.order_index) }));
-  if (matches.length) { renderSearchResults(matches, raw); return; }
-  // Preserve the existing RPC path for installations where the public student cache is restricted.
-  const normalized = raw.toUpperCase();
-  if (/^I\d{5}$/.test(normalized)) {
-    const { data } = await db.rpc("search_student", { _reg: normalized });
-    const st = mergeStudentWithLocalFresh(Array.isArray(data) ? data[0] : data);
-    if (st) { renderSearchResults([{ ...st, specialty_name: st.specialty_name || specName(st.specialty_id) }], raw); return; }
+  if (!lastList.length) {
+    box.innerHTML = `<div class="gempty" role="status"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/><line x1="8.5" y1="11" x2="13.5" y2="11"/></svg><b>${t("empty_title")}</b><p>${t("empty_text")}</p></div>`;
+    return;
   }
-  renderSearchResults([], raw);
+  const page = lastList.slice(0, shown);
+  box.innerHTML = `<p class="res-count" role="status">${t("n_results", { n: lastList.length })}</p>
+    <div class="ggrid">${page.map(cardHTML).join("")}</div>
+    ${lastList.length > shown ? `<div class="more-wrap"><button type="button" class="btn btn-ghost" id="btnMore">${t("show_more")}</button></div>` : ""}`;
+  const more = $("#btnMore"); if (more) more.onclick = () => { shown += PAGE_SIZE; renderResults(); };
 }
-let searchTimer;
-$("#btnSearch").onclick = doSearch;
-$("#searchInput").addEventListener("input", () => { $("#searchClear").classList.toggle("hidden", !$("#searchInput").value); clearTimeout(searchTimer); searchTimer = setTimeout(doSearch, 320); });
-$("#searchInput").addEventListener("keydown", e => { if (e.key === "Enter") { clearTimeout(searchTimer); doSearch(); } });
-$("#searchClear").onclick = () => { $("#searchInput").value = ""; $("#searchClear").classList.add("hidden"); $("#searchResult").innerHTML = ""; $("#searchInput").focus(); };
+/** Normalise what the user typed: trim, upper-case, Arabic-Indic digits -> Latin, drop invisible chars. */
+function normalizeReg(raw) {
+  return String(raw || "")
+    .replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF]/g, "")
+    .replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0) - 0x0660))
+    .replace(/[\u06F0-\u06F9]/g, d => String(d.charCodeAt(0) - 0x06F0))
+    .trim().toUpperCase();
+}
+/** Exact match only: the full registration number (letter I + 5 digits). No name / partial search. */
+function findByRegistration(reg) {
+  const st = state.students.find(x => String(x.registration_number || "").trim().toUpperCase() === reg);
+  return st ? enrichStudent(st) : null;
+}
+function scrollToResult() {
+  const box = $("#searchResult"); if (!box) return;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  requestAnimationFrame(() => box.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }));
+}
+async function runSearch(opts) {
+  const o = (opts && typeof opts === "object" && !("target" in opts)) ? opts : {};
+  const input = $("#searchInput"), box = $("#searchResult"), hint = $("#searchHint");
+  const raw = input.value, q = normalizeReg(raw);
+  const clr = $("#searchClear"); if (clr) clr.hidden = !raw.trim();
+  clearTimeout(searchTimer);
+  const seq = ++searchSeq;
+  const setHint = (txt, bad) => { if (!hint) return; hint.textContent = txt; hint.classList.toggle("is-bad", !!bad); };
+  if (!q) { lastList = []; box.innerHTML = ""; setHint(t("search_hint2")); return; }
+  if (!REG_NUMBER_PATTERN.test(q)) {           // incomplete or malformed: never show results
+    lastList = []; box.innerHTML = "";
+    setHint(o.explicit ? t("search_hint_bad") : t("search_hint2"), !!o.explicit);
+    return;
+  }
+  setHint("");
+  if (!state.publicLoaded) { box.innerHTML = skeletons(1); return; }
+  shown = PAGE_SIZE;
+  let list = [];
+  const local = findByRegistration(q);
+  if (local) list = [local];
+  else {                                        // sécurité : RPC par matricule exact
+    box.innerHTML = skeletons(1);
+    try {
+      const { data } = await db.rpc("search_student", { _reg: q });
+      if (seq !== searchSeq) return;
+      const row = Array.isArray(data) ? data[0] : data;
+      const st = row ? mergeStudentWithLocalFresh(row) : null;
+      if (st && String(st.registration_number || "").trim().toUpperCase() === q) list = [enrichStudent(st)];
+    } catch (e) { console.error(e); }
+  }
+  if (seq !== searchSeq) return;
+  lastList = list; renderResults();
+  if (list.length && o.scroll) {
+    if (matchMedia("(pointer: coarse)").matches && document.activeElement === input) input.blur();   // ferme le clavier mobile
+    scrollToResult();
+  }
+}
+function doSearch() { return runSearch(); }
+$("#searchInput").addEventListener("input", () => { clearTimeout(searchTimer); const c = $("#searchClear"); if (c) c.hidden = !$("#searchInput").value; searchTimer = setTimeout(() => runSearch({ scroll: true }), 220); });
+$("#searchInput").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); runSearch({ scroll: true, explicit: true }); } if (e.key === "Escape") { e.target.value = ""; runSearch(); } });
+$("#searchClear").onclick = () => { const i = $("#searchInput"); i.value = ""; runSearch(); i.focus(); };
+$("#btnSearch").onclick = () => runSearch({ scroll: true, explicit: true });
+$("#searchResult").addEventListener("click", e => {
+  const el = e.target.closest("[data-reg]"); if (el) openProfile(el.dataset.reg);
+});
+
+/* ------------------------- PROFILE — carte d'identité académique -------------------------
+   Route par hash (#/diplome/I21567) : bouton retour du navigateur, lien partageable. */
+const PROFILE_HASH = "#/diplome/";
+let profileReturnFocus = null, profilePushed = false;
+function openProfile(reg) { profilePushed = true; profileReturnFocus = document.activeElement; location.hash = PROFILE_HASH + encodeURIComponent(reg); }
+function closeProfile() {
+  if (location.hash.startsWith(PROFILE_HASH)) {
+    if (profilePushed) { profilePushed = false; history.back(); return; }
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+  hideProfile();
+}
+function hideProfile() {
+  const ov = $("#profileOverlay"); if (ov) ov.remove();
+  document.body.style.overflow = "";
+  applyBranding();
+  if (profileReturnFocus && document.contains(profileReturnFocus)) profileReturnFocus.focus();
+  profileReturnFocus = null;
+}
+async function routeFromHash() {
+  const h = location.hash;
+  if (!h.startsWith(PROFILE_HASH)) { if ($("#profileOverlay")) hideProfile(); return; }
+  const reg = decodeURIComponent(h.slice(PROFILE_HASH.length)).trim().toUpperCase();
+  let st = state.students.find(s => String(s.registration_number).trim().toUpperCase() === reg);
+  if (!st && REG_NUMBER_PATTERN.test(reg)) {
+    const { data } = await db.rpc("search_student", { _reg: reg });
+    st = mergeStudentWithLocalFresh(Array.isArray(data) ? data[0] : data);
+  }
+  showProfile(enrichStudent(st), reg);
+}
+function showProfile(st, reg) {
+  const old = $("#profileOverlay"); if (old) old.remove();
+  const ov = document.createElement("div");
+  ov.id = "profileOverlay"; ov.className = "prof-overlay";
+  ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true");
+  const facts = st ? [
+    [t("label_specialty"), st.specialty_name],
+    [t("label_category"), st.category],
+    [t("label_order_in_specialty"), st.order_index],
+    [t("label_sash_name"), sashName(st)],
+    [t("label_certificate_name"), certName(st)]
+  ].filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== "") : [];
+  ov.setAttribute("aria-labelledby", "profName");
+  ov.innerHTML = `<div class="prof-sheet">
+    <div class="prof-head">
+      <button type="button" class="prof-close" id="profClose" aria-label="${esc(t("close"))}">×</button>
+      <div class="prof-inst"><img src="icons/institute-logo.jpg" alt="" /><span>ISCAE · ${esc(promoNumberLabel())}</span></div>
+    </div>
+    ${st ? `${avatarHTML(st, "prof-av")}
+    <div class="prof-body">
+      <h2 id="profName">${esc(st.full_name)}</h2>
+      <div class="prof-meta"><span class="gcard-mat" dir="ltr">${esc(st.registration_number)}</span>
+        <span class="pm">${esc(promoLabel())}</span></div>
+      ${facts.length ? `<dl class="prof-facts">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
+      <div id="studentCardsBox"></div>
+      <div class="prof-actions"><button type="button" class="btn btn-primary" id="profShare">${t("share_profile")}</button></div>
+    </div>` : `<div class="prof-body"><div class="gempty" style="border:0"><b id="profName">${t("empty_title")}</b><p>${t("empty_text")}</p></div></div>`}
+  </div>`;
+  document.body.appendChild(ov);
+  document.body.style.overflow = "hidden";
+  if (st) document.title = `${st.full_name} — ISCAE — ${promoNumberLabel()}`;
+  const closeBtn = $("#profClose", ov); closeBtn.focus();
+  closeBtn.onclick = closeProfile;
+  ov.addEventListener("mousedown", e => { if (e.target === ov) closeProfile(); });
+  ov.addEventListener("keydown", e => {
+    if (e.key === "Escape") { e.preventDefault(); closeProfile(); }
+    if (e.key === "Tab") {
+      const f = $$("button,[href],input", ov).filter(x => !x.disabled); if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  const share = $("#profShare", ov);
+  if (share) share.onclick = async () => {
+    const url = location.origin + location.pathname + PROFILE_HASH + encodeURIComponent(st.registration_number);
+    const data = { title: `${st.full_name} — ISCAE`, text: `${st.full_name} — ${promoLabel()}`, url };
+    try {
+      if (navigator.share) { await navigator.share(data); return; }
+      await navigator.clipboard.writeText(url); toast(t("link_copied"));
+    } catch (e) { if (e && e.name === "AbortError") return; try { await navigator.clipboard.writeText(url); toast(t("link_copied")); } catch (_) { window.prompt(url, url); } }
+  };
+  const cardsBox = $("#studentCardsBox", ov);
+  if (cardsBox && st && st.id) fetchStudentCards(st.id).then(rows => { cardsBox.innerHTML = studentCardsHTML(rows); }).catch(() => { cardsBox.innerHTML = ""; });
+}
+window.addEventListener("hashchange", routeFromHash);
+window.addEventListener("scroll", () => { const h = $(".topbar"); if (h) h.classList.toggle("scrolled", window.scrollY > 8); }, { passive: true });
 
 /* ------------------------- 9. AUTH ------------------------- */
 function loginModal() {
@@ -1628,8 +2092,8 @@ function loginModal() {
         <h3>${t("login_modal_title")}</h3>
       </div>
       <form class="modal-body" id="loginForm">
-        <div class="field"><label>${t("field_email")}</label><input type="email" name="email" required placeholder="admin@iscae.mr" dir="ltr" /></div>
-        <div class="field"><label>${t("field_password")}</label><input type="password" name="password" required placeholder="••••••••" dir="ltr" /></div>
+        <div class="field"><label>${t("field_email")}</label><input type="email" name="email" required autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" inputmode="email" dir="ltr" /></div>
+        <div class="field"><label>${t("field_password")}</label><input type="password" name="password" required autocomplete="current-password" placeholder="••••••••" dir="ltr" /></div>
         <button class="btn btn-primary btn-block" type="submit" id="loginBtn">${t("btn_login_submit")}</button>
         <p class="muted" style="font-size:12px;text-align:center">${t("login_restricted_note")}</p>
       </form>
@@ -2199,8 +2663,11 @@ function renderSettings(panel) {
   const ovs = specialtyOverrides();
   panel.innerHTML = `
     <div class="panel-head"><h2>${t("settings_title")}</h2></div>
+    ${promoAdminHTML()}
     <form id="setForm" class="stack" style="max-width:720px">
-      <div class="promotion-admin-card"><div class="promotion-admin-copy"><span class="eyebrow">${state.lang === "fr" ? "IDENTITÉ DE LA PROMOTION" : "هوية الدفعة"}</span><h3>${state.lang === "fr" ? "Gestion de la promotion" : "إدارة الدفعة"}</h3><p>${state.lang === "fr" ? "Le numéro est distinct du nom, qui peut rester vide jusqu’à son annonce officielle." : "رقم الدفعة مستقل عن اسمها، ويمكن ترك الاسم فارغاً إلى حين الإعلان الرسمي."}</p></div><div class="grid-2"><div class="field"><label>${state.lang === "fr" ? "Numéro de la promotion" : "رقم الدفعة"}</label><input name="promotion_number" type="number" min="1" value="${esc(s.promotion_number ?? 18)}" required /></div><div class="field"><label>${state.lang === "fr" ? "Nom de la promotion — Français" : "اسم الدفعة — الفرنسية"}</label><input name="promotion_name_fr" value="${esc(s.promotion_name_fr || "")}" placeholder="${state.lang === "fr" ? "Laisser vide si non défini" : "اتركه فارغاً إذا لم يُحدد بعد"}" /></div><div class="field"><label>اسم الدفعة — العربية</label><input name="promotion_name_ar" dir="rtl" value="${esc(s.promotion_name_ar || "")}" placeholder="اتركه فارغاً إذا لم يُحدد بعد" /></div></div><div class="live-promo-preview"><span>${state.lang === "fr" ? "Aperçu en direct" : "معاينة مباشرة"}</span><strong id="promoPreviewNumber">${esc(s.promotion_number ?? 18)}ème Promotion</strong><b id="promoPreviewName">${esc(s.promotion_name_fr || "")}</b></div></div><div class="grid-2"><div class="field"><label>${t("field_platform_name")}</label><input name="platform_name" value="${esc(s.platform_name || "ISCAE")}" /></div></div>
+      <div class="grid-2">
+        <div class="field"><label>${t("field_platform_name")}</label><input name="platform_name" value="${esc(s.platform_name || "ISCAE 18ème Promotion")}" /></div>
+      </div>
       <div class="grid-2">
         <div class="field"><label>${t("field_graduation_date")}</label><input name="graduation_date" type="datetime-local" value="${toLocalInput(s.graduation_date)}" /></div>
         <div class="field"><label>${t("field_night_date")}</label><input name="night_party_date" type="datetime-local" value="${toLocalInput(s.night_party_date)}" /></div>
@@ -2238,19 +2705,13 @@ function renderSettings(panel) {
         </div>` : ""}
       <button class="btn btn-primary" type="submit" style="align-self:flex-start">${t("btn_save_settings")}</button>
     </form>`;
-  const promoNum = $("#setForm [name=promotion_number]"), promoFr = $("#setForm [name=promotion_name_fr]");
-  const updatePromoPreview = () => { if ($("#promoPreviewNumber")) $("#promoPreviewNumber").textContent = `${promoNum.value || 18}ème Promotion`; if ($("#promoPreviewName")) $("#promoPreviewName").textContent = promoFr.value || ""; };
-  [promoNum, promoFr].forEach(el => el && el.addEventListener("input", updatePromoPreview));
+  bindPromoAdmin();
   $("#setForm").onsubmit = async e => {
     e.preventDefault();
     const f = Object.fromEntries(new FormData(e.target));
     const basePayload = {
       id: 1,
       platform_name: f.platform_name.trim(),
-      promotion_number: Math.max(1, Number(f.promotion_number) || 18),
-      promotion_name_fr: String(f.promotion_name_fr || "").trim() || null,
-      promotion_name_ar: String(f.promotion_name_ar || "").trim() || null,
-      promotion_label: String(f.promotion_name_fr || "").trim() || String(f.promotion_name_ar || "").trim() || null,
       graduation_date: f.graduation_date ? new Date(f.graduation_date).toISOString() : null,
       night_party_date: f.night_party_date ? new Date(f.night_party_date).toISOString() : null,
       cat_a_limit: Number(f.cat_a_limit) || 0,
@@ -2280,6 +2741,100 @@ function renderSettings(panel) {
     if (error) { toast(t("err_save_failed", { msg: error.message }), "err"); return; }
     toast(t("msg_settings_saved"));
     await loadPublicData(); applyBranding(); renderStats(); renderEvents(); renderDash();
+  };
+}
+
+
+/* ------------------------- GESTION DE LA PROMOTION (admin principal) ------------------------- */
+function promoPreviewHTML(lang, n, name) {
+  const inst = lang === "fr" ? "Institut Supérieur de Comptabilité<br>et d'Administration des Entreprises" : "المعهد العالي للمحاسبة وإدارة المؤسسات";
+  return `<div class="pv" dir="${lang === "fr" ? "ltr" : "rtl"}" lang="${lang}"><b>${esc(promoNumberLabel(lang, n))}</b>${name ? `<em>${esc(name)}</em>` : ""}<small class="pv-inst">${inst}<br>ISCAE</small></div>`;
+}
+function promoAdminHTML() {
+  if (!isSuper()) return "";
+  const p = state.promo;
+  return `<form id="promoForm" class="promo-admin" novalidate>
+    <h3>${t("promo_mgmt")}</h3><p class="muted" style="font-size:13px;margin-top:4px">${t("promo_hint")}</p>
+    <div class="promo-cols"><div class="stack">
+      <div class="field"><label for="pNum">${t("promo_number")}</label><input id="pNum" name="n" type="number" min="1" max="99" value="${esc(p.number)}" dir="ltr" /></div>
+      <div class="field"><label for="pFr">${t("promo_name_fr")}</label><input id="pFr" name="fr" dir="ltr" lang="fr" maxlength="80" value="${esc(p.name_fr || "")}" /></div>
+      <div class="field"><label for="pAr">${t("promo_name_ar")}</label><input id="pAr" name="ar" dir="rtl" lang="ar" maxlength="80" value="${esc(p.name_ar || "")}" /></div>
+      <div class="field promo-logo-field"><label for="pLogoPick">${t("promo_logo")}</label>
+        <p class="muted" style="font-size:12.5px;line-height:1.6">${t("promo_logo_hint")}</p>
+        <div class="row" style="flex-wrap:wrap;gap:8px">
+          <input id="pLogoFile" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+          <button type="button" class="btn btn-ghost btn-sm" id="pLogoPick">${t("promo_logo_upload")}</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="pLogoReset">${t("promo_logo_reset")}</button>
+        </div>
+        <p class="muted" id="pLogoNote" style="font-size:12.5px;font-weight:700" aria-live="polite"></p>
+      </div>
+      <button class="btn btn-primary" type="submit" style="align-self:flex-start">${t("promo_save")}</button>
+    </div><div><p class="muted" style="font-size:13px;font-weight:700;margin-bottom:8px">${t("promo_preview")}</p>
+      <div class="pv-logo" id="pLogoPrev" aria-hidden="true"></div>
+      <div class="stack" id="promoPreview" aria-live="polite"></div></div></div></form>`;
+}
+/** Resize an uploaded image to max 512px and return a compact data URL (PNG keeps transparency). */
+function processPromoLogo(file) {
+  return new Promise((resolve, reject) => {
+    if (!file || !/^image\/(png|jpeg|webp)$/.test(file.type) || file.size > 5 * 1024 * 1024) { reject(new Error("bad")); return; }
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const max = 512, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+      const w = Math.max(1, Math.round(img.naturalWidth * k)), h = Math.max(1, Math.round(img.naturalHeight * k));
+      const c = document.createElement("canvas"); c.width = w; c.height = h;
+      const ctx = c.getContext("2d"); ctx.imageSmoothingQuality = "high"; ctx.drawImage(img, 0, 0, w, h);
+      let out = c.toDataURL("image/png");
+      if (out.length > 450000) out = c.toDataURL("image/webp", 0.9);
+      if (out.length > 450000 || !/^data:image\/(png|webp)/.test(out)) {
+        const c2 = document.createElement("canvas"); c2.width = w; c2.height = h;
+        const x2 = c2.getContext("2d"); x2.fillStyle = "#fff"; x2.fillRect(0, 0, w, h); x2.drawImage(img, 0, 0, w, h);
+        out = c2.toDataURL("image/jpeg", 0.88);
+      }
+      out.length > 600000 ? reject(new Error("big")) : resolve(out);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("bad")); };
+    img.src = url;
+  });
+}
+function bindPromoAdmin() {
+  const f = $("#promoForm"); if (!f) return;
+  let pending;                                   // undefined = unchanged · null = reset to default · string = new logo
+  const curLogo = () => pending === undefined ? state.promo.logo : pending;
+  const curNum = () => Math.max(1, Number(f.n.value) || state.promo.number);
+  const prev = () => {
+    const n = curNum();
+    $("#promoPreview").innerHTML = promoPreviewHTML("fr", n, f.fr.value.trim()) + promoPreviewHTML("ar", n, f.ar.value.trim());
+    $("#pLogoPrev").innerHTML = promoLogoInner(curLogo(), n);
+    $("#pLogoNote").textContent = pending === undefined ? "" : t("promo_logo_pending");
+  };
+  f.addEventListener("input", prev); prev();
+  const file = $("#pLogoFile");
+  $("#pLogoPick").onclick = () => file.click();
+  file.onchange = async () => {
+    const fl = file.files && file.files[0]; file.value = "";
+    if (!fl) return;
+    try { pending = await processPromoLogo(fl); prev(); }
+    catch (e) { toast(t("promo_logo_bad"), "err"); }
+  };
+  $("#pLogoReset").onclick = () => { pending = null; prev(); };
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const n = Number(f.n.value);
+    if (!Number.isInteger(n) || n < 1) { toast(t("promo_number"), "err"); return; }
+    const base = { promotion_number: n, promotion_name_fr: f.fr.value.trim() || null, promotion_name_ar: f.ar.value.trim() || null };
+    const withLogo = pending === undefined ? base : { ...base, promotion_logo: pending };
+    let { data, error } = await db.from("promotion_settings").update(withLogo).eq("id", 1).select();
+    let logoColumnMissing = false;
+    if (error && pending !== undefined && /promotion_logo|column|schema cache/i.test(error.message || "")) {
+      logoColumnMissing = true;                  // ancien schéma : on enregistre au moins le numéro et les noms
+      ({ data, error } = await db.from("promotion_settings").update(base).eq("id", 1).select());
+    }
+    if (error) { toast(/relation|schema cache|does not exist/i.test(error.message || "") ? t("promo_missing") : t("err_save_failed", { msg: error.message }), "err"); return; }
+    if (!data || !data.length) { toast(t("promo_denied"), "err"); return; }   // RLS: aucune ligne modifiée
+    if (!logoColumnMissing) pending = undefined;
+    await loadPromotion(); applyBranding(); renderStats(); renderEvents(); prev();
+    toast(logoColumnMissing ? t("promo_logo_missing") : t("promo_saved"), logoColumnMissing ? "err" : undefined);
   };
 }
 
@@ -3407,6 +3962,8 @@ async function init() {
   applyBranding();
   renderStats();
   renderEvents();
+  runSearch();
+  routeFromHash();
   if (state.session) { await loadMe(); if (isSuper()) await loadAdmins(); }
   syncHeader();
   initNotifications();
