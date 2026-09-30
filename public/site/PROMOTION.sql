@@ -10,15 +10,13 @@ create table if not exists public.promotion_settings (
   promotion_number  int  not null default 18 check (promotion_number > 0),
   promotion_name_fr text,                                       -- NULL = لم يُحدَّد بعد
   promotion_name_ar text,                                       -- NULL = لم يُحدَّد بعد
+  promotion_logo_url text,                                      -- NULL = الشعار الافتراضي
   updated_at        timestamptz not null default now(),
   updated_by        uuid references auth.users(id) on delete set null
 );
 
--- شعار الدفعة (يرفعه المشرف الرئيسي): صورة data:image مضغوطة أو رابط https. NULL = يُعرض الشعار الافتراضي.
-alter table public.promotion_settings
-  add column if not exists promotion_logo text
-  check (promotion_logo is null or (length(promotion_logo) <= 700000
-         and promotion_logo ~ '^(data:image/(png|jpeg|webp);base64,|https://)'));
+-- للقواعد المنشأة سابقاً (آمن للتكرار)
+alter table public.promotion_settings add column if not exists promotion_logo_url text;
 
 -- الصف الأولي: الرقم 18، بدون أي اسم (لا نخترع اسماً).
 insert into public.promotion_settings (id, promotion_number)
@@ -58,5 +56,5 @@ create policy "super admin can update promotion"
 
 revoke all on public.promotion_settings from anon, authenticated;
 grant select on public.promotion_settings to anon, authenticated;
-grant update (promotion_number, promotion_name_fr, promotion_name_ar, promotion_logo)
+grant update (promotion_number, promotion_name_fr, promotion_name_ar, promotion_logo_url)
   on public.promotion_settings to authenticated;

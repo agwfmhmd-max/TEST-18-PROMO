@@ -7,6 +7,8 @@
 (function(){
   try{
     var lg = localStorage.getItem("iscae-lang");
+    var th = localStorage.getItem("iscae-theme");
+    if (th === "dark" || (!th && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)) document.documentElement.classList.add("dark");
     if (lg === "fr") { document.documentElement.setAttribute("lang","fr"); document.documentElement.setAttribute("dir","ltr"); }
   }catch(e){}
 })();
@@ -137,7 +139,7 @@ header.topbar{
 }
 .brand-text{display:flex;flex-direction:column;line-height:1.15}
 .brand-text b{font-size:16px;letter-spacing:.6px}
-.brand-text span{font-size:11px;color:var(--violet-text);font-weight:700;letter-spacing:1.4px}
+.brand-text span{font-size:11px;color:var(--violet-500);font-weight:700;letter-spacing:1.4px}
 .icon-btn{
   width:48px;height:48px;border-radius:16px;display:grid;place-items:center;
   background:var(--surface); border:1px solid var(--stroke);
@@ -172,7 +174,7 @@ header.topbar{
 .hero p{margin-top:14px;font-size:clamp(15px,3.6vw,19px);color:var(--muted);max-width:640px;margin-inline:auto}
 .pill{
   display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;
-  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-text);
+  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-500);
   font-weight:700;font-size:13px;margin-bottom:18px;
   transition:all 0.3s ease;
 }
@@ -216,7 +218,7 @@ header.topbar{
 }
 .search-field:focus-within{border-color:var(--violet-300);box-shadow:var(--ring),var(--shadow-md)}
 .search-field input{flex:1;border:none;outline:none;background:transparent;padding:16px 0;font-size:17px;font-weight:600;letter-spacing:2px}
-.search-field .hash{color:var(--violet-text);font-weight:900;font-size:20px}
+.search-field .hash{color:var(--violet-500);font-weight:900;font-size:20px}
 
 .result-card{margin-top:22px;overflow:hidden;animation:fadeUp .5s ease both}
 .result-head{background:var(--grad-primary);color:#fff;padding:26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -252,9 +254,9 @@ header.topbar{
 .event-bottom small{color:var(--muted);font-weight:700;font-size:12px}
 .cd{display:flex;gap:10px;justify-content:center;margin-top:12px;direction:ltr}
 .cd-box{background:var(--violet-50);border:1px solid var(--stroke);border-radius:16px;padding:10px 6px;min-width:64px}
-.cd-box b{display:block;font-size:24px;font-weight:900;color:var(--violet-text)}
+.cd-box b{display:block;font-size:24px;font-weight:900;color:var(--violet-500)}
 .cd-box span{font-size:11px;color:var(--muted);font-weight:700}
-.ended{color:var(--violet-text);font-weight:900;font-size:22px;margin-top:8px}
+.ended{color:var(--violet-500);font-weight:900;font-size:22px;margin-top:8px}
 
 /* ==========================================================================
    8. FOOTER
@@ -331,7 +333,7 @@ html.dark .tag-C{background:#5b3f0b;color:#ffe6ab}
 html.dark .tag-D{background:#2b2f6b;color:#ccd3ff}
 .mini-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-bottom:22px}
 .mini{padding:18px;border-radius:20px;border:1px solid var(--stroke);background:var(--surface-solid);box-shadow:var(--shadow-sm)}
-.mini b{display:block;font-size:30px;font-weight:900;color:var(--violet-text)}
+.mini b{display:block;font-size:30px;font-weight:900;color:var(--violet-500)}
 .mini small{color:var(--muted);font-weight:700}
 .empty{padding:50px 20px;text-align:center;color:var(--muted);font-weight:700}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
@@ -415,14 +417,14 @@ html.dark .tag-D{background:#2b2f6b;color:#ccd3ff}
   justify-content:center;gap:6px;flex-wrap:wrap
 }
 .search-hint code{
-  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-text);
+  background:var(--violet-50);border:1px solid var(--stroke);color:var(--violet-500);
   border-radius:8px;padding:2px 8px;font-weight:800;letter-spacing:1px;direction:ltr;unicode-bidi:isolate
 }
 .search-hint.err{color:#be123c}
 .result-message{
   background:var(--violet-50);border-bottom:1px solid var(--stroke);
   padding:14px 26px;display:flex;align-items:center;gap:12px;
-  font-weight:800;font-size:14.5px;color:var(--violet-text);
+  font-weight:800;font-size:14.5px;color:var(--violet-700,var(--violet-500));
 }
 .result-message .ico{flex:0 0 auto;display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:rgba(124,58,237,.14);font-size:17px}
 html.dark .result-message{background:rgba(139,92,246,.10)}
@@ -571,13 +573,13 @@ html.dark .result-card-new .congrats-msg p { color: var(--violet-300); }
 [dir="rtl"] .cards-line:hover{transform:translateX(-2px)}
 .cards-line .cl-name{display:flex;align-items:center;gap:9px}
 .cards-dot{width:15px;height:15px;border-radius:50%;box-shadow:0 0 0 3px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.15);flex:0 0 auto}
-.cards-line.total{border-top:1px dashed var(--stroke);margin-top:10px;padding-top:14px;background:transparent;color:var(--violet-text);font-weight:900;font-size:15px}
+.cards-line.total{border-top:1px dashed var(--stroke);margin-top:10px;padding-top:14px;background:transparent;color:var(--violet-600);font-weight:900;font-size:15px}
 .cards-qty{background:var(--grad-emerald);color:#fff;border-radius:999px;padding:4px 14px;font-weight:900;min-width:44px;text-align:center;box-shadow:0 2px 8px rgba(16,185,129,.35)}
 .cards-line.total .cards-qty{background:var(--grad-primary);box-shadow:0 2px 8px rgba(124,58,237,.35);font-size:15px;padding:5px 16px}
 .cards-empty{color:var(--muted);font-size:13px;padding:8px 4px}
 .cer-admin-card{border:1px solid var(--stroke);border-radius:var(--radius-sm);padding:16px;background:var(--surface-solid);margin-bottom:16px}
 .cer-admin-card .cer-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.cer-badge{display:inline-flex;gap:6px;align-items:center;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:800;background:var(--violet-50);color:var(--violet-text)}
+.cer-badge{display:inline-flex;gap:6px;align-items:center;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:800;background:var(--violet-50);color:var(--violet-600)}
 .cer-ok{color:var(--emerald-dark);font-weight:900}
 .cer-bad{color:#e11d48;font-weight:900}
 
@@ -589,7 +591,7 @@ html.dark .result-card-new .congrats-msg p { color: var(--violet-300); }
 .color-row-grid input[type="number"]{text-align:center}
 .cr-remove{border:none;background:rgba(225,29,72,.1);color:#e11d48;border-radius:10px;height:44px;width:38px;font-weight:900;cursor:pointer;transition:.15s}
 .cr-remove:hover{background:rgba(225,29,72,.2)}
-.cards-sum-box{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:12px 16px;border-radius:14px;font-weight:800;font-size:14px;background:var(--violet-50);color:var(--violet-text);border:1px solid var(--stroke);transition:.2s}
+.cards-sum-box{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:12px 16px;border-radius:14px;font-weight:800;font-size:14px;background:var(--violet-50);color:var(--violet-600);border:1px solid var(--stroke);transition:.2s}
 .cards-sum-box.ok{background:rgba(16,185,129,.12);color:var(--emerald-dark)}
 .cards-sum-box.bad{background:rgba(225,29,72,.1);color:#e11d48}
 @media (max-width:640px){
@@ -615,10 +617,7 @@ html.dark .result-card-new .congrats-msg p { color: var(--violet-300); }
   --border:var(--stroke); --success:#059669; --warning:#b45309; --error:#be123c;
   --ink:#180a42; --ink-2:#2d1170; --gold:#c9a24a;
   --ease:cubic-bezier(.22,.8,.2,1);
-  --violet-text:#6528dc;
-  --muted:#586377;
 }
-html.dark{--violet-text:#b8a3ff;--muted:#94a3b8}
 body{font-family:'Plus Jakarta Sans','Tajawal','Almarai',system-ui,sans-serif}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:10px}
 .topbar{transition:box-shadow .3s var(--ease),background .3s var(--ease)}
@@ -627,7 +626,7 @@ body{font-family:'Plus Jakarta Sans','Tajawal','Almarai',system-ui,sans-serif}
 .topnav{display:flex;gap:4px;margin-inline-end:8px}
 .topnav a{padding:10px 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:12px;font-weight:700;font-size:14px;color:var(--muted);transition:color .2s,background .2s}
 .topnav a:hover{color:var(--text);background:var(--violet-50)}
-.topnav a[aria-current="true"]{color:var(--violet-text)}
+.topnav a[aria-current="true"]{color:var(--primary)}
 @media (max-width:760px){.topnav{display:none}}
 
 /* ---- Hero ---- */
@@ -665,7 +664,7 @@ html[dir=rtl] .hero2-num{letter-spacing:0;font-weight:900}
 .finder-box{display:flex;align-items:center;gap:10px;background:var(--surface-solid);border:1.5px solid var(--border);border-radius:22px;padding:8px 10px;
   box-shadow:0 24px 50px -18px rgba(24,10,66,.45);transition:box-shadow .25s var(--ease),border-color .25s}
 .finder-box:focus-within{border-color:var(--primary);box-shadow:0 0 0 5px rgba(101,40,220,.16),0 24px 50px -18px rgba(24,10,66,.5)}
-.finder-box svg{flex:none;color:var(--violet-text);margin-inline-start:8px}
+.finder-box svg{flex:none;color:var(--primary);margin-inline-start:8px}
 .finder-box input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font:inherit;font-size:clamp(16px,3.6vw,19px);font-weight:600;padding:16px 4px;min-height:56px}
 .finder-box input::placeholder{color:var(--muted);font-weight:500}
 .finder-clear{width:44px;height:44px;flex:none;border:0;border-radius:14px;background:var(--violet-50);color:var(--muted);font-size:20px;cursor:pointer;transition:transform .15s,background .2s}
@@ -687,13 +686,13 @@ html[dir=rtl] .hero2-num{letter-spacing:0;font-weight:900}
 .gav img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
 .gcard:hover .gav img{transform:scale(1.06)}
 .gcard h3{margin-top:14px;font-size:18px;font-weight:800;line-height:1.35;overflow-wrap:anywhere}
-.gcard-mat{margin-top:8px;font-weight:800;letter-spacing:.06em;color:var(--violet-text);background:var(--violet-50);padding:3px 12px;border-radius:999px;font-size:14px}
+.gcard-mat{margin-top:8px;font-weight:800;letter-spacing:.06em;color:var(--primary);background:var(--violet-50);padding:3px 12px;border-radius:999px;font-size:14px}
 .gcard-spec{margin-top:10px;font-size:14px;color:var(--muted);overflow-wrap:anywhere}
 .gcard-promo{margin-top:4px;font-size:13px;font-weight:700;color:var(--text)}
 .gcard-btn{margin-top:18px;min-height:44px;width:100%;background:var(--ink);color:#fff;border-radius:14px}
 .gcard-btn:hover{background:var(--primary)}
 .gempty{margin-top:26px;text-align:center;padding:44px 22px;border:1px dashed var(--violet-300);border-radius:22px;background:var(--surface)}
-.gempty svg{color:var(--violet-text);opacity:.75}.gempty b{display:block;margin-top:12px;font-size:19px}.gempty p{margin-top:6px;color:var(--muted)}
+.gempty svg{color:var(--primary);opacity:.75}.gempty b{display:block;margin-top:12px;font-size:19px}.gempty p{margin-top:6px;color:var(--muted)}
 .sk{border-radius:22px;height:270px;background:linear-gradient(100deg,var(--violet-50) 30%,var(--surface-solid) 50%,var(--violet-50) 70%);background-size:220% 100%;animation:shimmer 1.3s linear infinite;border:1px solid var(--border)}
 @keyframes shimmer{to{background-position:-220% 0}}
 .more-wrap{display:flex;justify-content:center;margin-top:22px}
@@ -743,56 +742,86 @@ html[dir=rtl] .hero2-num{font-size:clamp(34px,8.5vw,76px);line-height:1.25}
 html[dir=ltr] .topbar-inner{flex-direction:row-reverse}
 html[dir=ltr] .topnav{margin-inline-end:0;margin-inline-start:8px}
 
+/* ---- v2: logos, signature, exact search, dark mode audit ---- */
+.hero2-logo{width:clamp(112px,26vw,148px);height:auto;aspect-ratio:1;border-radius:0;box-shadow:none;filter:drop-shadow(0 18px 30px rgba(0,0,0,.55));display:grid;place-items:center}
+.hero2-logo svg,.hero2-logo-img{width:100%;height:100%;object-fit:contain;display:block}
+.brand-logo-img{object-fit:contain;background:#fff;padding:2px}
+.ggrid.one{grid-template-columns:minmax(0,440px);justify-content:center}
+.logo-edit{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.logo-prev{width:96px;height:96px;flex:none;border-radius:16px;border:1px dashed var(--violet-300);display:grid;place-items:center;padding:6px;background:var(--surface-solid)}
+.logo-prev svg,.logo-prev img{width:100%;height:100%;object-fit:contain}
+.mda{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:4px 10px 4px 12px;min-height:30px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:11.5px;font-weight:600;text-decoration:none;transition:transform .2s var(--ease),border-color .2s,box-shadow .2s}
+.mda b{display:inline-grid;place-items:center;height:20px;padding:0 9px;border-radius:999px;background:linear-gradient(135deg,var(--ink-2),var(--primary));color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.2em;box-shadow:inset 0 0 0 1px rgba(201,162,74,.65)}
+.mda svg{color:#22a559}
+.mda:hover{transform:translateY(-1px);border-color:var(--gold);box-shadow:0 8px 20px -10px rgba(101,40,220,.5)}
+html.dark{color-scheme:dark;--primary-soft:#c4b4ff}
+html:not(.dark){color-scheme:light}
+html.dark .topbar.scrolled{box-shadow:0 8px 30px -12px rgba(0,0,0,.7)}
+html.dark .topnav a:hover{background:rgba(196,180,255,.1);color:var(--text)}
+html.dark .topnav a[aria-current="true"]{color:var(--primary-soft)}
+html.dark .brand-logo-img{box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+html.dark .finder-box{background:var(--surface-solid);border-color:rgba(148,163,184,.22);box-shadow:0 24px 50px -18px rgba(0,0,0,.7)}
+html.dark .finder-box:focus-within{border-color:var(--primary-soft);box-shadow:0 0 0 5px rgba(196,180,255,.16),0 24px 50px -18px rgba(0,0,0,.8)}
+html.dark .finder-box svg{color:var(--primary-soft)}
+html.dark .finder-clear{background:rgba(148,163,184,.14);color:var(--text)}
+html.dark .gcard{border-color:rgba(148,163,184,.16)}
+html.dark .gcard:hover{border-color:var(--primary-soft);box-shadow:0 22px 40px -22px rgba(124,77,240,.7)}
+html.dark .gcard-mat{background:rgba(196,180,255,.12);color:var(--primary-soft)}
+html.dark .gcard-btn{background:var(--primary)}html.dark .gcard-btn:hover{background:#7c4df0}
+html.dark .gempty{border-color:rgba(196,180,255,.3)}html.dark .gempty svg{color:var(--primary-soft)}
+html.dark .sk{background:linear-gradient(100deg,#1e293b 30%,#2a3650 50%,#1e293b 70%);background-size:220% 100%}
+html.dark .prof-sheet{border:1px solid rgba(148,163,184,.18)}
+html.dark .prof-av,html.dark .gav{border-color:var(--surface-solid)}
+html.dark .prof-meta .pm{border-color:rgba(148,163,184,.25)}
+html.dark .promo-admin{background:rgba(30,41,59,.6)}
+html.dark .logo-prev{border-color:rgba(196,180,255,.4)}
+html.dark .mda{background:rgba(30,41,59,.7)}
+html.dark .mda:hover{border-color:var(--gold)}
+html.dark .mda svg{color:#4ade80}
+html.dark .finder-hint,html.dark .search-hint{color:var(--muted)}
+html.dark .search-hint.err{color:#fda4af}
+
+/* ---- v2.1: WCAG AA tokens + spacing ---- */
+:root{--muted:#536178}
+html.dark{--muted:#a3b1c6}
+html.dark .brand-text span,html.dark .cd-box b,html.dark .ended,html.dark .mini b,html.dark .search-field .hash{color:var(--primary-soft)}
+html.dark .spec-card-num{color:color-mix(in oklab,var(--card-color) 45%,#fff)}
+html.dark .spec-card .badge{color:color-mix(in oklab,var(--card-color) 45%,#fff)!important}
+.finder-hint{margin:12px 0 22px}
+html.dark .hero2{border-bottom:1px solid rgba(255,255,255,.06)}
+body:has(#installBanner:not(.hidden)) footer,body:has(#notifBanner:not(.hidden)) footer{padding-bottom:120px}
+
+/* ---- v3: signature, congrats, profile logos ---- */
+.plate{background:rgba(255,255,255,.95);border-radius:22%;padding:6%;box-shadow:0 0 0 1px rgba(201,162,74,.5)}
+.hero2-logo-img{background:rgba(255,255,255,.95);border-radius:22%;padding:5%;box-shadow:0 0 0 1px rgba(201,162,74,.55)}
+.mda{position:relative;display:inline-flex;align-items:center;gap:10px;margin-top:14px;padding:0 4px;min-height:44px;background:none;border:0;text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.42em;padding-inline-start:calc(4px + .42em);
+  color:var(--muted);transition:color .25s var(--ease),letter-spacing .35s var(--ease),text-shadow .25s}
+.mda::before,.mda::after{content:"";width:22px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));opacity:.75;transition:width .35s var(--ease)}
+.mda::after{transform:scaleX(-1)}
+.mda:hover,.mda:focus-visible{color:var(--primary);letter-spacing:.5em;text-shadow:0 0 18px rgba(201,162,74,.5)}
+.mda:hover::before,.mda:hover::after{width:32px}
+html.dark .mda:hover,html.dark .mda:focus-visible{color:var(--primary-soft)}
+.congrats{display:flex;align-items:center;gap:16px;max-width:440px;margin:26px auto 16px;padding:16px 18px;border-radius:20px;border:1px solid rgba(201,162,74,.6);
+  background:linear-gradient(135deg,rgba(101,40,220,.09),rgba(201,162,74,.12));position:relative;overflow:hidden;animation:rise .6s var(--ease) both}
+.congrats::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%);animation:sheen 2.4s .5s var(--ease) 1 forwards;pointer-events:none}
+@keyframes sheen{to{transform:translateX(120%)}}
+.congrats-logo{width:64px;height:64px;flex:none}.congrats-logo svg,.congrats-logo img{width:100%;height:100%;object-fit:contain}
+.congrats b{display:block;font-size:17px;font-weight:800;color:var(--text);overflow-wrap:anywhere}
+.congrats p{margin-top:4px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+html.dark .congrats{background:linear-gradient(135deg,rgba(124,77,240,.18),rgba(201,162,74,.12))}
+.prof-logos{position:relative;display:flex;align-items:center;justify-content:center;gap:18px}
+.prof-logos .pl-inst{width:60px;height:60px;border-radius:16px;object-fit:contain;background:#fff;padding:2px;box-shadow:0 0 0 1px rgba(255,255,255,.2),0 10px 24px -8px rgba(0,0,0,.6)}
+.pl-sep{width:1px;height:46px;background:linear-gradient(transparent,var(--gold),transparent)}
+.pl-promo{width:72px;height:72px}.pl-promo svg,.pl-promo img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(0,0,0,.5))}
+.prof-head{padding-top:30px}.prof-inst{margin-top:14px}.prof-inst img{display:none}
+
+footer .mda,footer a.mda{background:none!important;border:0!important;box-shadow:none!important;border-radius:0;color:color-mix(in oklab,var(--text) 68%,transparent)}
+footer .mda:hover,footer .mda:focus-visible{color:var(--primary)}
+html.dark footer .mda:hover,html.dark footer .mda:focus-visible{color:var(--primary-soft)}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
-/* ==========================================================================
-   BRAND · PROMOTION EMBLEM · MDA SIGNATURE · SEARCH REFINEMENTS (appended last)
-   ========================================================================== */
-/* Sticky header must span the whole page (body was clamped to 100% height, which released it after one screen) */
-body{height:auto;min-height:100%}
-
-/* Header: institute logo */
-.brand{gap:12px}
-.brand-logo-img{width:44px;height:44px;flex:none;border-radius:14px;background:#fff;object-fit:contain;padding:2px;border:1px solid var(--stroke);box-shadow:0 4px 14px rgba(101,40,220,.28)}
-html.dark .brand-logo-img{border-color:rgba(255,255,255,.18);box-shadow:0 0 0 1px rgba(255,255,255,.06),0 6px 18px rgba(0,0,0,.55)}
-.prof-inst{padding-inline:50px}
-.prof-inst img{background:#fff;object-fit:contain;padding:2px;border-radius:9px}
-
-/* Hero: promotion emblem (default crest, or the logo uploaded by the super admin) */
-.hero2-emblem{width:clamp(132px,34vw,190px);aspect-ratio:1;display:grid;place-items:center;filter:drop-shadow(0 18px 32px rgba(0,0,0,.5))}
-.hero2-emblem svg,.hero2-emblem img{width:100%;height:100%;display:block;object-fit:contain}
-.hero2-emblem.is-custom img{border-radius:20px}
-.hero2 h1{margin-top:22px}
-.pv-logo{width:132px;aspect-ratio:1;margin:0 auto 14px;padding:10px;border-radius:20px;display:grid;place-items:center;background:radial-gradient(120% 100% at 50% 0%,var(--ink-2),var(--ink))}
-.pv-logo svg,.pv-logo img{width:100%;height:100%;object-fit:contain;display:block}
-.promo-logo-field{gap:8px}
-
-/* Search: exact registration number only */
-.finder-box input{letter-spacing:.02em}
-.finder-hint{min-height:1.6em;transition:color .2s}
-.finder-hint.is-bad{color:var(--error);font-weight:700}
-html.dark{--error:#fb7185}
-#searchResult{scroll-margin-top:96px}
-.ggrid:has(> .gcard:only-child){grid-template-columns:minmax(0,400px);justify-content:center}
-
-/* Footer: MDA signature */
-.foot-sign-row{display:flex;justify-content:center;margin-top:18px;padding-top:14px;border-top:1px dashed var(--stroke)}
-.mda-sign{display:inline-flex;align-items:center;gap:8px;height:32px;padding-inline:12px 5px;border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);
-  background:var(--surface);border:1px solid var(--stroke);box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s,color .25s}
-.mda-mark{display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:999px;font-weight:900;font-size:11px;letter-spacing:.2em;padding-inline-end:calc(10px - .2em);color:#fff;background:linear-gradient(135deg,#6528dc 0%,#a34df0 55%,#d946ef 100%);box-shadow:0 4px 12px -4px rgba(101,40,220,.7)}
-.mda-wa{color:#1fa855;margin-inline-end:6px;transition:transform .25s var(--ease)}
-html.dark .mda-wa{color:#34d874}
-.mda-sign:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--text);box-shadow:0 10px 24px -12px rgba(101,40,220,.55)}
-.mda-sign:hover .mda-wa{transform:scale(1.18) rotate(-8deg)}
-.mda-sign:active{transform:scale(.97)}
-/* Theme precision: readable text on admin-chosen specialty colours in both themes */
-.spec-card-num{color:color-mix(in oklab,var(--card-color) 80%,#000)}
-.spec-card .badge{color:color-mix(in oklab,var(--card-color) 80%,#000)!important}
-html.dark .spec-card-num{color:color-mix(in oklab,var(--card-color) 55%,#fff)}
-html.dark .spec-card .badge{color:color-mix(in oklab,var(--card-color) 55%,#fff)!important}
-.finder-clear{color:#475569}
-html.dark .finder-clear{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -824,7 +853,7 @@ html.dark .finder-clear{color:var(--muted)}
       <div class="brand-text center" style="align-items:flex-end">
         <b>ISCAE</b><span id="brandPromoLabel">PROMOTION 18</span>
       </div>
-      <img class="brand-logo-img" src="icons/institute-logo.jpg" alt="ISCAE — المعهد العالي للمحاسبة وإدارة المؤسسات" width="44" height="44" decoding="async" />
+      <img class="brand-logo-img" src="brand/logo-iscae.png" alt="ISCAE" width="42" height="42" />
     </a>
   </div>
 </header>
@@ -835,7 +864,7 @@ html.dark .finder-clear{color:var(--muted)}
     <header class="hero2">
       <div class="hero2-bg" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
       <div class="hero2-in">
-        <div class="hero2-emblem" id="heroEmblem" role="img" aria-label="Promotion"></div>
+        <div class="hero2-logo" id="heroLogo"></div>
         <h1 id="heroTitle"><span class="hero2-num" id="heroNumber">18ème Promotion</span><span class="hero2-name" id="heroName" hidden></span></h1>
         <div><p class="hero2-inst" id="heroInst"></p><p class="hero2-country" id="heroCountry"></p><p class="hero2-soon" id="heroSoon" hidden></p></div>
         <a class="btn hero2-cta" id="heroCta" href="#search"></a>
@@ -852,7 +881,7 @@ html.dark .finder-clear{color:var(--muted)}
         <h2 class="finder-title" id="finderTitle"></h2>
         <div class="finder-box" role="search">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/></svg>
-          <input id="searchInput" type="search" dir="ltr" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" maxlength="16" enterkeyhint="search" />
+          <input id="searchInput" type="text" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" enterkeyhint="search" maxlength="6" dir="ltr" />
           <button type="button" class="finder-clear" id="searchClear" hidden>×</button>
           <button type="button" class="btn btn-primary" id="btnSearch" data-i18n="search_btn" style="min-height:48px">بحث</button>
         </div>
@@ -894,14 +923,8 @@ html.dark .finder-clear{color:var(--muted)}
 <footer>
   <div class="container footer-inner">
     <button class="btn btn-ghost btn-sm" id="btnFooterLogin" data-i18n="footer_login">دخول المشرفين ←</button>
-    <div class="foot2"><b>ISCAE — <span id="footerPromoLabel">18ème Promotion</span></b><span id="footerInst"></span><span>Mauritanie · © <span id="footerYear">2026</span> <span id="footerRights"></span></span></div>
-  </div>
-  <div class="container foot-sign-row no-print">
-    <a class="mda-sign" id="mdaSign" href="https://wa.me/22220479962" target="_blank" rel="noopener noreferrer" title="WhatsApp · +222 20 47 99 62" aria-label="MDA — WhatsApp +222 20 47 99 62">
-      <span class="mda-by" data-i18n="foot_by">تصميم وتطوير</span>
-      <span class="mda-mark" aria-hidden="true">MDA</span>
-      <svg class="mda-wa" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.45 9.45 0 0 1-4.82-1.32l-.35-.2-3.58.94.96-3.49-.23-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.21 4.24-9.45 9.46-9.45 2.52 0 4.9.99 6.68 2.77a9.4 9.4 0 0 1 2.76 6.68c0 5.21-4.24 9.46-9.42 9.46zM20.52 3.45A11.4 11.4 0 0 0 12.05 0C5.73 0 .59 5.14.59 11.46c0 2.02.53 3.99 1.53 5.73L.5 23.5l6.46-1.69a11.44 11.44 0 0 0 5.09 1.2h.01c6.32 0 11.46-5.14 11.46-11.46 0-3.06-1.19-5.94-3.35-8.1z" transform="translate(0 0)"/></svg>
-    </a>
+    <div class="foot2"><b>ISCAE — <span id="footerPromoLabel">18ème Promotion</span></b><span id="footerInst"></span><span>Mauritanie · © <span id="footerYear">2026</span> <span id="footerRights"></span></span>
+      <a class="mda" href="https://wa.me/22220479962" target="_blank" rel="noopener noreferrer" aria-label="MDA — WhatsApp">MDA</a></div>
   </div>
 </footer>
 
@@ -1382,6 +1405,37 @@ function promoNumberLabel(lang = state.lang, n = state.promo.number) {
 function promoName(lang = state.lang) {
   return String((lang === "fr" ? state.promo.name_fr : state.promo.name_ar) || "").trim();
 }
+let logoUid = 0;
+/** شعار افتراضي (شارة الدفعة) يُستبدل تلقائياً بشعار يرفعه المشرف الرئيسي. */
+function defaultPromoLogo(n) {
+  const u = ++logoUid, fs = String(n).length > 2 ? 26 : 36;
+  const nodes = [0, 45, 90, 135, 180, 225, 270, 315].map(a => { const r = a * Math.PI / 180, x1 = 60 + 52.5 * Math.cos(r), y1 = 60 + 52.5 * Math.sin(r), x2 = 60 + 47 * Math.cos(r), y2 = 60 + 47 * Math.sin(r);
+    return `<line x1="${x2.toFixed(1)}" y1="${y2.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}"/><circle cx="${x1.toFixed(1)}" cy="${y1.toFixed(1)}" r="1.6"/>`; }).join("");
+  const bars = [6, 9, 12, 15].map((h, i) => `<rect x="${29.5 + i * 5.6}" y="${90 - h}" width="4" height="${h}" rx="1"/>`).join("");
+  return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(promoNumberLabel())}">
+    <defs><linearGradient id="pg${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c4df0"/><stop offset=".55" stop-color="#3a1691"/><stop offset="1" stop-color="#1b0b4d"/></linearGradient>
+    <linearGradient id="gg${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e0a0"/><stop offset="1" stop-color="#c9a24a"/></linearGradient>
+    <radialGradient id="sh${u}" cx=".35" cy=".2" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="60" cy="60" r="58" fill="url(#gg${u})"/><circle cx="60" cy="60" r="55.5" fill="url(#pg${u})"/><circle cx="60" cy="60" r="55.5" fill="url(#sh${u})"/>
+    <circle cx="60" cy="60" r="44.5" fill="none" stroke="#f6e0a0" stroke-opacity=".38" stroke-width=".8"/>
+    <g stroke="#f6e0a0" stroke-opacity=".55" stroke-width=".9" fill="#f6e0a0" fill-opacity=".8">${nodes}</g>
+    <g fill="url(#gg${u})"><polygon points="60,13 80,21.5 60,30 40,21.5"/><path d="M48.5 25.5v6.5c0 2.6 5 4.8 11.5 4.8s11.5-2.2 11.5-4.8v-6.5L60 31z" opacity=".78"/><rect x="78.6" y="21.5" width="1.5" height="9.5"/><circle cx="79.4" cy="33" r="1.9"/></g>
+    <text x="60" y="${fs > 30 ? 64 : 62}" text-anchor="middle" font-family="'Plus Jakarta Sans',Tajawal,sans-serif" font-weight="800" font-size="${fs}" fill="url(#gg${u})">${esc(n)}</text>
+    <g><line x1="44" y1="69.5" x2="56" y2="69.5" stroke="#f6e0a0" stroke-opacity=".6" stroke-width=".8"/><line x1="64" y1="69.5" x2="76" y2="69.5" stroke="#f6e0a0" stroke-opacity=".6" stroke-width=".8"/><rect x="58" y="67.5" width="4" height="4" transform="rotate(45 60 69.5)" fill="#f6e0a0"/></g>
+    <g fill="url(#gg${u})">${bars}</g>
+    <polyline points="29,80 35,76 41,78 51,70" fill="none" stroke="#f6e0a0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="53,68.6 47.6,69.4 51.6,73.4" fill="#f6e0a0"/>
+    <g fill="none" stroke="url(#gg${u})" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M76 76l-6 6.5 6 6.5"/><path d="M84 74.5l-4.5 16"/><path d="M87.5 76l6 6.5-6 6.5" transform="translate(-0.5 0)"/></g>
+    <text x="60" y="105" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="8" letter-spacing="3.2" fill="#fff" fill-opacity=".9">ISCAE</text></svg>`;
+}
+function promoLogoHTML(url, n, cls) {
+  return url ? `<img class="${cls || ""}" src="${esc(url)}" alt="${esc(promoNumberLabel(state.lang, n))}" decoding="async" />` : defaultPromoLogo(n);
+}
+function renderHeroLogo() {
+  const el = $("#heroLogo"); if (!el) return;
+  const url = state.promo.logo || "", key = url + "|" + state.promo.number + "|" + state.lang;
+  if (el.dataset.key === key) return;
+  el.dataset.key = key; el.innerHTML = promoLogoHTML(url, state.promo.number, "hero2-logo-img");
+}
 function promoLabel() {
   const nm = promoName();
   return nm ? `${promoNumberLabel()} — ${nm}` : promoNumberLabel();
@@ -1390,72 +1444,8 @@ async function loadPromotion() {
   try {
     const { data, error } = await db.from("promotion_settings").select("*").eq("id", 1).maybeSingle();
     state.promoReady = !error && !!data;
-    if (state.promoReady) state.promo = { number: Number(data.promotion_number) || 18, name_fr: data.promotion_name_fr || null, name_ar: data.promotion_name_ar || null, logo: safePromoLogo(data.promotion_logo) };
+    if (state.promoReady) state.promo = { number: Number(data.promotion_number) || 18, name_fr: data.promotion_name_fr || null, name_ar: data.promotion_name_ar || null, logo: data.promotion_logo_url || null };
   } catch (e) { state.promoReady = false; }
-}
-
-
-/* ------------------------- PROMOTION LOGO — شعار الدفعة (افتراضي احترافي، يستبدله المشرف الرئيسي) ------------------------- */
-/** Accept only data:image (png/jpeg/webp) or https URLs. */
-function safePromoLogo(v) {
-  const x = String(v || "").trim();
-  return /^(data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+|https:\/\/[^\s"'<>]+)$/.test(x) ? x : null;
-}
-let __emblemUid = 0;
-/** Default emblem: crest with laurel wreath, mortarboard and the promotion number (always in sync with promotion_settings). */
-function promoEmblemSVG(n, lang = state.lang) {
-  const id = "pe" + (++__emblemUid), num = String(n);
-  const word = lang === "fr" ? "PROMOTION" : "الدفعة";
-  const size = num.length >= 3 ? 40 : num.length === 2 ? 58 : 66;
-  const leaf = (side, i) => {
-    const th = (32 + i * (86 / 8)) * Math.PI / 180, r = 72;                 // angle from the bottom, going up each side
-    const x = 100 + side * r * Math.sin(th), y = 100 + r * Math.cos(th);
-    const phi = Math.atan2(-side * Math.cos(th), -Math.sin(th)) * 180 / Math.PI + side * -22;   // align with the arc, tips slightly outward
-    return `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="4.4" ry="10.5" transform="rotate(${phi.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})" fill="url(#${id}g)" opacity="${(0.98 - i * 0.03).toFixed(2)}"/>`;
-  };
-  let leaves = "";
-  for (let i = 0; i < 9; i++) { leaves += leaf(1, i) + leaf(-1, i); }
-  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
-  <defs>
-    <linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dc9b"/><stop offset=".5" stop-color="#c9a24a"/><stop offset="1" stop-color="#8f6b1f"/></linearGradient>
-    <radialGradient id="${id}b" cx="50%" cy="28%" r="80%"><stop offset="0" stop-color="#4a24a8"/><stop offset=".62" stop-color="#2a1163"/><stop offset="1" stop-color="#180a42"/></radialGradient>
-    <linearGradient id="${id}r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3dc9b"/><stop offset="1" stop-color="#b98d34"/></linearGradient>
-    <filter id="${id}s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity=".45"/></filter>
-  </defs>
-  <g filter="url(#${id}s)">
-    <circle cx="100" cy="100" r="94" fill="url(#${id}b)"/>
-    <circle cx="100" cy="100" r="94" fill="none" stroke="url(#${id}g)" stroke-width="4"/>
-    <circle cx="100" cy="100" r="86" fill="none" stroke="#c9a24a" stroke-opacity=".45" stroke-width="1"/>
-  </g>
-  ${leaves}
-  <g transform="translate(100 47)">
-    <path d="M-27 6 v13 c0 9 12 15 27 15 s27-6 27-15 V6 L0 17z" fill="url(#${id}g)" opacity=".92"/>
-    <path d="M0-22 L46 -2 0 18 -46 -2z" fill="url(#${id}g)"/>
-    <path d="M0-22 L46 -2 0 18 -46 -2z" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width=".8"/>
-    <path d="M40 0 v22" stroke="url(#${id}g)" stroke-width="2.4" stroke-linecap="round"/>
-    <circle cx="40" cy="25" r="3.4" fill="url(#${id}g)"/>
-  </g>
-  <text x="100" y="${size >= 58 ? 122 : 118}" text-anchor="middle" font-family="'Plus Jakarta Sans','Tajawal',system-ui,sans-serif" font-weight="800" font-size="${size}" fill="#fff" letter-spacing="-1">${esc(num)}</text>
-  <g>
-    <path d="M52 134 H148 L155 146 L148 158 H52 L45 146 Z" fill="url(#${id}r)"/>
-    <path d="M52 134 H148 L155 146 L148 158 H52 L45 146 Z" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width=".8"/>
-    <text x="100" y="151" text-anchor="middle" font-family="'Plus Jakarta Sans','Tajawal',system-ui,sans-serif" font-weight="800" font-size="${lang === "fr" ? 11.5 : 13}" fill="#180a42" letter-spacing="${lang === "fr" ? 2.4 : 0}">${esc(word)}</text>
-  </g>
-  <text x="100" y="176" text-anchor="middle" font-family="'Plus Jakarta Sans',system-ui,sans-serif" font-weight="700" font-size="9" fill="#f3dc9b" fill-opacity=".85" letter-spacing="3">ISCAE</text>
-</svg>`;
-}
-/** Inner HTML for a logo slot: the custom logo if the super admin uploaded one, else the default emblem. */
-function promoLogoInner(logo = state.promo.logo, n = state.promo.number) {
-  const safe = safePromoLogo(logo);
-  return safe
-    ? `<img src="${esc(safe)}" alt="" decoding="async" onerror="this.parentNode.innerHTML=promoEmblemSVG(state.promo.number)" />`
-    : promoEmblemSVG(n);
-}
-function renderPromoLogo() {
-  const el = $("#heroEmblem"); if (!el) return;
-  el.innerHTML = promoLogoInner();
-  el.classList.toggle("is-custom", !!safePromoLogo(state.promo.logo));
-  el.setAttribute("aria-label", promoLabel());
 }
 
 Object.assign(I18N, {
@@ -1464,14 +1454,16 @@ Object.assign(I18N, {
   hero_cta:{ar:"البحث عن خريج",fr:"Rechercher un diplômé"},
   hero_soon:{ar:"سيُعلَن عن اسم الدفعة قريباً.",fr:"Le nom de la promotion sera annoncé prochainement."},
   finder_title:{ar:"ابحث عن خريجي {promo}",fr:"Retrouvez les diplômés de la {promo}"},
-  search_ph:{ar:"أدخل رقم التسجيل كاملاً، مثال: I21567",fr:"N° d'inscription, ex. I21567"},
-  search_hint2:{ar:"يظهر الخريج فقط عند إدخال رقم التسجيل كاملاً بالصيغة I21567.",fr:"Le diplômé s'affiche uniquement avec le numéro d'inscription complet, au format I21567."},
+  search_ph:{ar:"رقم التسجيل — مثال I21567",fr:"Numéro d'inscription — ex. I21567"},
+  search_hint2:{ar:"اكتب حرفين على الأقل من الاسم أو الرقم الجامعي.",fr:"Saisissez au moins 2 caractères du nom ou du matricule."},
   search_clear:{ar:"مسح البحث",fr:"Effacer la recherche"},
   nav_home:{ar:"الرئيسية",fr:"Accueil"},nav_grads:{ar:"الخريجون",fr:"Diplômés"},
   n_results:{ar:"{n} خريج",fr:"{n} diplômé(s)"},
   show_more:{ar:"عرض المزيد",fr:"Afficher plus"},
-  empty_title:{ar:"لم يتم العثور على الخريج",fr:"Aucun diplômé trouvé"},
-  empty_text:{ar:"لا يوجد خريج بهذا الرقم. تحقق من رقم التسجيل ثم حاول مرة أخرى.",fr:"Aucun diplômé avec ce numéro. Vérifiez le numéro d'inscription et réessayez."},
+  empty_title:{ar:"لم يتم العثور على الطالب",fr:"Aucun diplômé trouvé"},
+  empty_text:{ar:"تحقق من الاسم أو الرقم الجامعي ثم حاول مرة أخرى.",fr:"Vérifiez le nom ou le matricule et essayez à nouveau."},
+  congrats_title:{ar:"تهانينا {name}! 🎓",fr:"Félicitations {name} ! 🎓"},
+  congrats_text:{ar:"يسعدنا أن نجدك ضمن خريجي {promo} من المعهد العالي للمحاسبة وإدارة المؤسسات. مسيرة مشرّفة وبداية مستقبل واعد.",fr:"Nous sommes fiers de vous compter parmi les diplômés de la {promo} de l'ISCAE. Un parcours d'excellence et un avenir prometteur."},
   view_profile:{ar:"عرض الملف",fr:"Voir le profil"},
   lbl_matricule:{ar:"الرقم الجامعي",fr:"Matricule"},
   share_profile:{ar:"مشاركة الملف",fr:"Partager le profil"},
@@ -1479,15 +1471,6 @@ Object.assign(I18N, {
   close:{ar:"إغلاق",fr:"Fermer"},
   meta_desc:{ar:"منصة ISCAE الرسمية لتخرّج {promo}: البحث عن الخريجين والاطلاع على ملفاتهم الأكاديمية وحفل التخرج.",fr:"Plateforme officielle de remise des diplômes de l'ISCAE — {promo} : retrouvez les diplômés et suivez la cérémonie."},
   foot_rights:{ar:"جميع الحقوق محفوظة",fr:"Tous droits réservés"},
-  foot_by:{ar:"تصميم وتطوير",fr:"Conçu et développé par"},
-  search_hint_bad:{ar:"أدخل رقم التسجيل كاملاً وبالصيغة الصحيحة، مثل I21567.",fr:"Saisissez le numéro d'inscription complet au bon format, par exemple I21567."},
-  promo_logo:{ar:"شعار الدفعة",fr:"Logo de la promotion"},
-  promo_logo_hint:{ar:"يظهر بشكل بارز في الصفحة الرئيسية. PNG أو JPG أو WEBP — يُفضَّل خلفية شفافة. إن لم تُرفع صورة يُعرض الشعار الافتراضي.",fr:"S'affiche en évidence sur la page d'accueil. PNG, JPG ou WEBP — fond transparent conseillé. Sans image, le logo par défaut est affiché."},
-  promo_logo_upload:{ar:"رفع شعار الدفعة",fr:"Téléverser le logo"},
-  promo_logo_reset:{ar:"استعادة الشعار الافتراضي",fr:"Rétablir le logo par défaut"},
-  promo_logo_pending:{ar:"شعار جديد جاهز — اضغط «حفظ» لاعتماده.",fr:"Nouveau logo prêt — cliquez sur « Enregistrer » pour l'appliquer."},
-  promo_logo_bad:{ar:"ملف غير صالح: اختر صورة PNG أو JPG أو WEBP لا يتجاوز حجمها 5 ميغابايت.",fr:"Fichier invalide : choisissez une image PNG, JPG ou WEBP de 5 Mo maximum."},
-  promo_logo_missing:{ar:"تم حفظ الاسم والرقم، لكن عمود الشعار غير موجود: نفّذ PROMOTION.sql المحدَّث في Supabase.",fr:"Nom et numéro enregistrés, mais la colonne du logo est absente : exécutez le PROMOTION.sql mis à jour dans Supabase."},
   promo_mgmt:{ar:"إدارة الدفعة",fr:"Gestion de la promotion"},
   promo_number:{ar:"رقم الدفعة",fr:"Numéro de la promotion"},
   promo_name_fr:{ar:"اسم الدفعة — الفرنسية",fr:"Nom de la promotion — Français"},
@@ -1497,6 +1480,10 @@ Object.assign(I18N, {
   promo_saved:{ar:"تم حفظ هوية الدفعة",fr:"Identité de la promotion enregistrée"},
   promo_missing:{ar:"جدول promotion_settings غير موجود: نفّذ PROMOTION.sql في Supabase أولاً.",fr:"Table promotion_settings absente : exécutez d'abord PROMOTION.sql dans Supabase."},
   promo_denied:{ar:"غير مصرّح: للمشرف الرئيسي فقط.",fr:"Non autorisé : administrateur principal uniquement."},
+  promo_logo:{ar:"شعار الدفعة",fr:"Logo de la promotion"},
+  promo_logo_hint:{ar:"PNG أو JPG أو WebP (حتى 5 ميغابايت). يظهر بارزاً في الصفحة الرئيسية. بدون شعار يظهر الشعار الافتراضي.",fr:"PNG, JPG ou WebP (5 Mo max). Affiché en évidence sur l'accueil. Sans logo, l'emblème par défaut est utilisé."},
+  promo_logo_reset:{ar:"العودة للشعار الافتراضي",fr:"Revenir à l'emblème par défaut"},
+  promo_logo_fail:{ar:"تعذّر رفع الشعار: {msg}",fr:"Échec de l'envoi du logo : {msg}"},
   promo_hint:{ar:"اترك اسم الدفعة فارغاً إذا لم يُحدَّد بعد — لن يظهر أي اسم للزوار.",fr:"Laissez le nom vide s'il n'est pas encore défini — aucun nom ne sera affiché aux visiteurs."}
 });
 
@@ -1575,7 +1562,7 @@ function applyStaticI18n() {
   $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
   $$("[data-i18n-title]").forEach(el => { el.setAttribute("title", t(el.dataset.i18nTitle)); });
   const hint = $("#searchHint");
-  if (hint && !($("#searchInput") && $("#searchInput").value)) hint.textContent = t("search_hint2");
+  if (hint) hint.innerHTML = `${t("search_hint_prefix")} <code>I</code> ${t("search_hint_suffix")} <code>I21567</code>`;
 }
 
 function setMeta(sel, val) { const m = document.querySelector(sel); if (m) m.setAttribute("content", val); }
@@ -1591,15 +1578,15 @@ function applyBranding() {
   set("#heroNumber", num);
   const hn = $("#heroName"); if (hn) { hn.textContent = name; hn.hidden = !name; }
   const soon = $("#heroSoon"); if (soon) { soon.textContent = t("hero_soon"); soon.hidden = !!(state.promo.name_fr || state.promo.name_ar); }
-  renderPromoLogo();
   set("#heroInst", t("hero_inst")); set("#heroCountry", t("hero_country")); set("#heroCta", t("hero_cta"));
   set("#finderTitle", t("finder_title", { promo: num }));
   set("#navHome", t("nav_home")); set("#navGrads", t("nav_grads"));
-  const inp = $("#searchInput"); if (inp) { inp.placeholder = t("search_ph"); inp.setAttribute("aria-label", t("search_ph")); }
+  const inp = $("#searchInput"); if (inp) { inp.dir = state.lang === "fr" ? "ltr" : "rtl"; inp.placeholder = t("search_ph"); inp.setAttribute("aria-label", t("search_ph")); }
   const clr = $("#searchClear"); if (clr) clr.setAttribute("aria-label", t("search_clear"));
   set("#eventsSubtitle", t("events_subtitle", { promo }));
   set("#footerPromoLabel", promo); set("#footerRights", t("foot_rights"));
   set("#footerInst", t("hero_inst"));
+  renderHeroLogo();
   set("#footerYear", new Date().getFullYear());
 }
 
@@ -1870,32 +1857,15 @@ setInterval(tickCountdowns, 1000);
 
 /* ------------------------- 8. PUBLIC SEARCH ------------------------- */
 /** Registration numbers must be the letter I followed by exactly 5 digits, e.g. I21567. */
-/* ------------------------- 8. SEARCH — annuaire des diplômés ------------------------- */
+/* ------------------------- 8. SEARCH — رقم التسجيل الدقيق فقط -------------------------
+   لا بحث بالاسم ولا نتائج جزئية: النتيجة تظهر فقط عند إدخال رقم تسجيل كامل وصحيح (I + 5 أرقام). */
 const REG_NUMBER_PATTERN = /^I\d{5}$/;
-const PAGE_SIZE = 24;
-let searchTimer = null, searchSeq = 0, shown = PAGE_SIZE, lastList = [];
-
-const norm = s => String(s || "").normalize("NFD")
-  .replace(/[\u0300-\u036f\u064B-\u065F\u0670\u0640]/g, "")
-  .replace(/[إأآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").toLowerCase().trim();
+let searchTimer = null, searchSeq = 0;
 
 function enrichStudent(st) {
   if (!st) return st;
   const sp = state.specialties.find(x => x.id === st.specialty_id);
   return { ...st, specialty_name: st.specialty_name || (sp ? sp.name : ""), category: st.category || categoryOf(st.order_index) };
-}
-function matchStudents(q) {
-  const tokens = norm(q).split(/\s+/).filter(Boolean);
-  if (!tokens.length) return [];
-  const out = [];
-  for (const s of state.students) {
-    const reg = norm(s.registration_number), name = norm(s.full_name);
-    const hay = reg + " " + name;
-    if (!tokens.every(tk => hay.includes(tk))) continue;
-    const score = reg === tokens[0] ? 0 : name.startsWith(tokens[0]) ? 1 : reg.startsWith(tokens[0]) ? 1 : 2;
-    out.push({ s, score });
-  }
-  return out.sort((a, b) => a.score - b.score || (a.s.full_name || "").localeCompare(b.s.full_name || "")).map(x => enrichStudent(x.s));
 }
 function initials(name) {
   const w = String(name || "").trim().split(/\s+/).filter(Boolean);
@@ -1908,9 +1878,9 @@ function avatarHTML(st, cls) {
   return `<div class="gav ${cls || ""}" style="--h:${hueOf(st.registration_number || st.full_name)}">${u
     ? `<img src="${esc(u)}" alt="${esc(st.full_name || "")}" loading="lazy" decoding="async" onerror="this.remove()" />` : ""}<span ${u ? 'style="position:absolute;z-index:-1"' : ""} aria-hidden="true">${esc(initials(st.full_name))}</span></div>`;
 }
-function skeletons(n) { return `<div class="ggrid" aria-hidden="true">${Array.from({ length: n }, () => `<div class="sk"></div>`).join("")}</div>`; }
-function cardHTML(st, i) {
-  return `<article class="gcard" data-reg="${esc(st.registration_number)}" style="--i:${Math.min(i, 11)}">
+function skeletons(n) { return `<div class="ggrid one" aria-hidden="true">${Array.from({ length: n }, () => `<div class="sk"></div>`).join("")}</div>`; }
+function cardHTML(st) {
+  return `<article class="gcard" data-reg="${esc(st.registration_number)}">
     <div class="gcard-band"></div>${avatarHTML(st)}
     <h3>${esc(st.full_name)}</h3>
     <span class="gcard-mat" dir="ltr" title="${esc(t("lbl_matricule"))}">${esc(st.registration_number)}</span>
@@ -1919,78 +1889,51 @@ function cardHTML(st, i) {
     <button type="button" class="btn gcard-btn" data-reg="${esc(st.registration_number)}">${t("view_profile")}</button>
   </article>`;
 }
-function renderResults() {
-  const box = $("#searchResult");
-  if (!lastList.length) {
-    box.innerHTML = `<div class="gempty" role="status"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/><line x1="8.5" y1="11" x2="13.5" y2="11"/></svg><b>${t("empty_title")}</b><p>${t("empty_text")}</p></div>`;
-    return;
-  }
-  const page = lastList.slice(0, shown);
-  box.innerHTML = `<p class="res-count" role="status">${t("n_results", { n: lastList.length })}</p>
-    <div class="ggrid">${page.map(cardHTML).join("")}</div>
-    ${lastList.length > shown ? `<div class="more-wrap"><button type="button" class="btn btn-ghost" id="btnMore">${t("show_more")}</button></div>` : ""}`;
-  const more = $("#btnMore"); if (more) more.onclick = () => { shown += PAGE_SIZE; renderResults(); };
-}
-/** Normalise what the user typed: trim, upper-case, Arabic-Indic digits -> Latin, drop invisible chars. */
-function normalizeReg(raw) {
-  return String(raw || "")
-    .replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF]/g, "")
-    .replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0) - 0x0660))
-    .replace(/[\u06F0-\u06F9]/g, d => String(d.charCodeAt(0) - 0x06F0))
-    .trim().toUpperCase();
-}
-/** Exact match only: the full registration number (letter I + 5 digits). No name / partial search. */
-function findByRegistration(reg) {
-  const st = state.students.find(x => String(x.registration_number || "").trim().toUpperCase() === reg);
-  return st ? enrichStudent(st) : null;
-}
-function scrollToResult() {
-  const box = $("#searchResult"); if (!box) return;
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  requestAnimationFrame(() => box.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }));
-}
-async function runSearch(opts) {
-  const o = (opts && typeof opts === "object" && !("target" in opts)) ? opts : {};
-  const input = $("#searchInput"), box = $("#searchResult"), hint = $("#searchHint");
-  const raw = input.value, q = normalizeReg(raw);
-  const clr = $("#searchClear"); if (clr) clr.hidden = !raw.trim();
+async function runSearch(fromUser) {
+  const input = $("#searchInput"), box = $("#searchResult"), hint = $("#searchHint"), clr = $("#searchClear");
+  const q = input.value.trim().toUpperCase();
+  if (clr) clr.hidden = !input.value;
   clearTimeout(searchTimer);
   const seq = ++searchSeq;
-  const setHint = (txt, bad) => { if (!hint) return; hint.textContent = txt; hint.classList.toggle("is-bad", !!bad); };
-  if (!q) { lastList = []; box.innerHTML = ""; setHint(t("search_hint2")); return; }
-  if (!REG_NUMBER_PATTERN.test(q)) {           // incomplete or malformed: never show results
-    lastList = []; box.innerHTML = "";
-    setHint(o.explicit ? t("search_hint_bad") : t("search_hint2"), !!o.explicit);
+  if (!q) { box.innerHTML = ""; if (hint) hint.classList.remove("err"); if (fromUser === true) toast(t("search_enter_first"), "info"); return; }
+  if (!REG_NUMBER_PATTERN.test(q)) {           // رقم ناقص أو غير صحيح ⇒ لا نتائج إطلاقاً
+    box.innerHTML = "";
+    if (hint) hint.classList.toggle("err", fromUser === true);
+    if (fromUser === true) toast(t("search_invalid_format"), "err");
     return;
   }
-  setHint("");
+  if (hint) hint.classList.remove("err");
   if (!state.publicLoaded) { box.innerHTML = skeletons(1); return; }
-  shown = PAGE_SIZE;
-  let list = [];
-  const local = findByRegistration(q);
-  if (local) list = [local];
-  else {                                        // sécurité : RPC par matricule exact
-    box.innerHTML = skeletons(1);
-    try {
-      const { data } = await db.rpc("search_student", { _reg: q });
-      if (seq !== searchSeq) return;
-      const row = Array.isArray(data) ? data[0] : data;
-      const st = row ? mergeStudentWithLocalFresh(row) : null;
-      if (st && String(st.registration_number || "").trim().toUpperCase() === q) list = [enrichStudent(st)];
-    } catch (e) { console.error(e); }
-  }
+  box.innerHTML = skeletons(1);
+  const { data, error } = await db.rpc("search_student", { _reg: q });
   if (seq !== searchSeq) return;
-  lastList = list; renderResults();
-  if (list.length && o.scroll) {
-    if (matchMedia("(pointer: coarse)").matches && document.activeElement === input) input.blur();   // ferme le clavier mobile
-    scrollToResult();
+  let st = mergeStudentWithLocalFresh(Array.isArray(data) ? data[0] : data);
+  if (!st && !error) {                          // احتياط: مطابقة تامة محلياً إذا لم تُنشر الدالة بعد
+    const local = state.students.find(s => String(s.registration_number).trim().toUpperCase() === q);
+    if (local) st = local;
   }
+  if (st && String(st.registration_number).trim().toUpperCase() !== q) st = null;   // مطابقة تامة فقط
+  if (!st) {
+    box.innerHTML = `<div class="gempty" role="status"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/><line x1="8.5" y1="11" x2="13.5" y2="11"/></svg><b>${t("empty_title")}</b><p>${t("search_no_results_text", { q: esc(q) })}</p></div>`;
+    return;
+  }
+  const first = String(st.full_name || "").trim().split(/\s+/)[0] || "";
+  box.innerHTML = `<div class="congrats" role="status"><div class="congrats-logo">${promoLogoHTML(state.promo.logo, state.promo.number, "plate")}</div>
+      <div><b>${t("congrats_title", { name: esc(first) })}</b><p>${t("congrats_text", { promo: esc(promoNumberLabel()) })}</p></div></div>
+    <div class="ggrid one">${cardHTML(enrichStudent(st))}</div>`;
+  if (fromUser === true) setTimeout(() => { const el = box.querySelector(".gcard"); if (el) el.scrollIntoView({ behavior: "smooth", block: "center" }); }, 120);
 }
-function doSearch() { return runSearch(); }
-$("#searchInput").addEventListener("input", () => { clearTimeout(searchTimer); const c = $("#searchClear"); if (c) c.hidden = !$("#searchInput").value; searchTimer = setTimeout(() => runSearch({ scroll: true }), 220); });
-$("#searchInput").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); runSearch({ scroll: true, explicit: true }); } if (e.key === "Escape") { e.target.value = ""; runSearch(); } });
-$("#searchClear").onclick = () => { const i = $("#searchInput"); i.value = ""; runSearch(); i.focus(); };
-$("#btnSearch").onclick = () => runSearch({ scroll: true, explicit: true });
+function doSearch() { return runSearch(false); }
+$("#searchInput").addEventListener("input", e => {
+  const v = e.target.value.toUpperCase().replace(/\s+/g, ""); if (v !== e.target.value) e.target.value = v;
+  const c = $("#searchClear"); if (c) c.hidden = !v;
+  clearTimeout(searchTimer);
+  if (REG_NUMBER_PATTERN.test(v)) searchTimer = setTimeout(() => runSearch(false), 200);   // رقم كامل ⇒ بحث تلقائي
+  else { ++searchSeq; $("#searchResult").innerHTML = ""; const h = $("#searchHint"); if (h) h.classList.remove("err"); }
+});
+$("#searchInput").addEventListener("keydown", e => { if (e.key === "Enter") runSearch(true); if (e.key === "Escape") { e.target.value = ""; runSearch(false); } });
+$("#searchClear").onclick = () => { const i = $("#searchInput"); i.value = ""; runSearch(false); i.focus(); };
+$("#btnSearch").onclick = () => runSearch(true);
 $("#searchResult").addEventListener("click", e => {
   const el = e.target.closest("[data-reg]"); if (el) openProfile(el.dataset.reg);
 });
@@ -2018,10 +1961,11 @@ async function routeFromHash() {
   const h = location.hash;
   if (!h.startsWith(PROFILE_HASH)) { if ($("#profileOverlay")) hideProfile(); return; }
   const reg = decodeURIComponent(h.slice(PROFILE_HASH.length)).trim().toUpperCase();
-  let st = state.students.find(s => String(s.registration_number).trim().toUpperCase() === reg);
-  if (!st && REG_NUMBER_PATTERN.test(reg)) {
+  let st = null;
+  if (REG_NUMBER_PATTERN.test(reg)) {
     const { data } = await db.rpc("search_student", { _reg: reg });
     st = mergeStudentWithLocalFresh(Array.isArray(data) ? data[0] : data);
+    if (!st) st = state.students.find(s => String(s.registration_number).trim().toUpperCase() === reg) || null;
   }
   showProfile(enrichStudent(st), reg);
 }
@@ -2041,7 +1985,8 @@ function showProfile(st, reg) {
   ov.innerHTML = `<div class="prof-sheet">
     <div class="prof-head">
       <button type="button" class="prof-close" id="profClose" aria-label="${esc(t("close"))}">×</button>
-      <div class="prof-inst"><img src="icons/institute-logo.jpg" alt="" /><span>ISCAE · ${esc(promoNumberLabel())}</span></div>
+      <div class="prof-logos"><img class="pl-inst" src="brand/logo-iscae.png" alt="ISCAE" /><i class="pl-sep" aria-hidden="true"></i><div class="pl-promo">${promoLogoHTML(state.promo.logo, state.promo.number, "plate")}</div></div>
+      <div class="prof-inst"><span>ISCAE · ${esc(promoLabel())}</span></div>
     </div>
     ${st ? `${avatarHTML(st, "prof-av")}
     <div class="prof-body">
@@ -2092,8 +2037,8 @@ function loginModal() {
         <h3>${t("login_modal_title")}</h3>
       </div>
       <form class="modal-body" id="loginForm">
-        <div class="field"><label>${t("field_email")}</label><input type="email" name="email" required autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" inputmode="email" dir="ltr" /></div>
-        <div class="field"><label>${t("field_password")}</label><input type="password" name="password" required autocomplete="current-password" placeholder="••••••••" dir="ltr" /></div>
+        <div class="field"><label>${t("field_email")}</label><input type="email" name="email" required placeholder="admin@iscae.mr" dir="ltr" /></div>
+        <div class="field"><label>${t("field_password")}</label><input type="password" name="password" required placeholder="••••••••" dir="ltr" /></div>
         <button class="btn btn-primary btn-block" type="submit" id="loginBtn">${t("btn_login_submit")}</button>
         <p class="muted" style="font-size:12px;text-align:center">${t("login_restricted_note")}</p>
       </form>
@@ -2750,6 +2695,15 @@ function promoPreviewHTML(lang, n, name) {
   const inst = lang === "fr" ? "Institut Supérieur de Comptabilité<br>et d'Administration des Entreprises" : "المعهد العالي للمحاسبة وإدارة المؤسسات";
   return `<div class="pv" dir="${lang === "fr" ? "ltr" : "rtl"}" lang="${lang}"><b>${esc(promoNumberLabel(lang, n))}</b>${name ? `<em>${esc(name)}</em>` : ""}<small class="pv-inst">${inst}<br>ISCAE</small></div>`;
 }
+/** رفع شعار الدفعة: التخزين أولاً، وإن رُفض (صلاحيات) نستعمل data-URL للملفات الصغيرة. */
+async function uploadPromoLogo(file) {
+  const ext = ((file.name || "").split(".").pop() || "png").toLowerCase().replace(/[^a-z0-9]/g, "") || "png";
+  const path = `promotion/logo-${Date.now()}.${ext}`;
+  const { error } = await db.storage.from(PHOTO_BUCKET).upload(path, file, { contentType: file.type || undefined, upsert: false });
+  if (!error) return db.storage.from(PHOTO_BUCKET).getPublicUrl(path).data.publicUrl;
+  if (file.size <= 350 * 1024) return await new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = () => rej(error); r.readAsDataURL(file); });
+  throw error;
+}
 function promoAdminHTML() {
   if (!isSuper()) return "";
   const p = state.promo;
@@ -2759,82 +2713,49 @@ function promoAdminHTML() {
       <div class="field"><label for="pNum">${t("promo_number")}</label><input id="pNum" name="n" type="number" min="1" max="99" value="${esc(p.number)}" dir="ltr" /></div>
       <div class="field"><label for="pFr">${t("promo_name_fr")}</label><input id="pFr" name="fr" dir="ltr" lang="fr" maxlength="80" value="${esc(p.name_fr || "")}" /></div>
       <div class="field"><label for="pAr">${t("promo_name_ar")}</label><input id="pAr" name="ar" dir="rtl" lang="ar" maxlength="80" value="${esc(p.name_ar || "")}" /></div>
-      <div class="field promo-logo-field"><label for="pLogoPick">${t("promo_logo")}</label>
-        <p class="muted" style="font-size:12.5px;line-height:1.6">${t("promo_logo_hint")}</p>
-        <div class="row" style="flex-wrap:wrap;gap:8px">
-          <input id="pLogoFile" type="file" accept="image/png,image/jpeg,image/webp" hidden />
-          <button type="button" class="btn btn-ghost btn-sm" id="pLogoPick">${t("promo_logo_upload")}</button>
-          <button type="button" class="btn btn-ghost btn-sm" id="pLogoReset">${t("promo_logo_reset")}</button>
-        </div>
-        <p class="muted" id="pLogoNote" style="font-size:12.5px;font-weight:700" aria-live="polite"></p>
-      </div>
+      <div class="field"><label for="pLogo">${t("promo_logo")}</label>
+        <div class="logo-edit"><div class="logo-prev" id="logoPrev"></div>
+          <div class="stack" style="gap:8px;min-width:0"><input id="pLogo" type="file" accept="image/png,image/jpeg,image/webp" />
+          <button type="button" class="btn btn-ghost btn-sm" id="pLogoReset" style="align-self:flex-start">${t("promo_logo_reset")}</button>
+          <small class="muted">${t("promo_logo_hint")}</small></div></div></div>
       <button class="btn btn-primary" type="submit" style="align-self:flex-start">${t("promo_save")}</button>
     </div><div><p class="muted" style="font-size:13px;font-weight:700;margin-bottom:8px">${t("promo_preview")}</p>
-      <div class="pv-logo" id="pLogoPrev" aria-hidden="true"></div>
       <div class="stack" id="promoPreview" aria-live="polite"></div></div></div></form>`;
-}
-/** Resize an uploaded image to max 512px and return a compact data URL (PNG keeps transparency). */
-function processPromoLogo(file) {
-  return new Promise((resolve, reject) => {
-    if (!file || !/^image\/(png|jpeg|webp)$/.test(file.type) || file.size > 5 * 1024 * 1024) { reject(new Error("bad")); return; }
-    const url = URL.createObjectURL(file), img = new Image();
-    img.onload = () => {
-      URL.revokeObjectURL(url);
-      const max = 512, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
-      const w = Math.max(1, Math.round(img.naturalWidth * k)), h = Math.max(1, Math.round(img.naturalHeight * k));
-      const c = document.createElement("canvas"); c.width = w; c.height = h;
-      const ctx = c.getContext("2d"); ctx.imageSmoothingQuality = "high"; ctx.drawImage(img, 0, 0, w, h);
-      let out = c.toDataURL("image/png");
-      if (out.length > 450000) out = c.toDataURL("image/webp", 0.9);
-      if (out.length > 450000 || !/^data:image\/(png|webp)/.test(out)) {
-        const c2 = document.createElement("canvas"); c2.width = w; c2.height = h;
-        const x2 = c2.getContext("2d"); x2.fillStyle = "#fff"; x2.fillRect(0, 0, w, h); x2.drawImage(img, 0, 0, w, h);
-        out = c2.toDataURL("image/jpeg", 0.88);
-      }
-      out.length > 600000 ? reject(new Error("big")) : resolve(out);
-    };
-    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("bad")); };
-    img.src = url;
-  });
 }
 function bindPromoAdmin() {
   const f = $("#promoForm"); if (!f) return;
-  let pending;                                   // undefined = unchanged · null = reset to default · string = new logo
-  const curLogo = () => pending === undefined ? state.promo.logo : pending;
-  const curNum = () => Math.max(1, Number(f.n.value) || state.promo.number);
   const prev = () => {
-    const n = curNum();
+    const n = Math.max(1, Number(f.n.value) || state.promo.number);
     $("#promoPreview").innerHTML = promoPreviewHTML("fr", n, f.fr.value.trim()) + promoPreviewHTML("ar", n, f.ar.value.trim());
-    $("#pLogoPrev").innerHTML = promoLogoInner(curLogo(), n);
-    $("#pLogoNote").textContent = pending === undefined ? "" : t("promo_logo_pending");
   };
-  f.addEventListener("input", prev); prev();
-  const file = $("#pLogoFile");
-  $("#pLogoPick").onclick = () => file.click();
-  file.onchange = async () => {
-    const fl = file.files && file.files[0]; file.value = "";
-    if (!fl) return;
-    try { pending = await processPromoLogo(fl); prev(); }
-    catch (e) { toast(t("promo_logo_bad"), "err"); }
+  let pending;   // undefined = inchangé · null = retirer · File = nouveau logo
+  const showLogo = () => {
+    const box = $("#logoPrev"); if (!box) return;
+    const n = Math.max(1, Number(f.n.value) || state.promo.number);
+    if (pending instanceof File) { if (box._u) URL.revokeObjectURL(box._u); box._u = URL.createObjectURL(pending); box.innerHTML = `<img src="${box._u}" alt="" />`; }
+    else box.innerHTML = promoLogoHTML(pending === null ? "" : state.promo.logo, n);
   };
-  $("#pLogoReset").onclick = () => { pending = null; prev(); };
+  f.addEventListener("input", () => { prev(); if (!(pending instanceof File) && !state.promo.logo) showLogo(); });
+  $("#pLogo").onchange = e => { const file = e.target.files[0]; if (!file) return; if (!validatePhotoFile(file)) { e.target.value = ""; return; } pending = file; showLogo(); };
+  $("#pLogoReset").onclick = () => { pending = null; $("#pLogo").value = ""; showLogo(); };
+  prev(); showLogo();
   f.onsubmit = async e => {
     e.preventDefault();
     const n = Number(f.n.value);
     if (!Number.isInteger(n) || n < 1) { toast(t("promo_number"), "err"); return; }
-    const base = { promotion_number: n, promotion_name_fr: f.fr.value.trim() || null, promotion_name_ar: f.ar.value.trim() || null };
-    const withLogo = pending === undefined ? base : { ...base, promotion_logo: pending };
-    let { data, error } = await db.from("promotion_settings").update(withLogo).eq("id", 1).select();
-    let logoColumnMissing = false;
-    if (error && pending !== undefined && /promotion_logo|column|schema cache/i.test(error.message || "")) {
-      logoColumnMissing = true;                  // ancien schéma : on enregistre au moins le numéro et les noms
-      ({ data, error } = await db.from("promotion_settings").update(base).eq("id", 1).select());
-    }
+    const payload = { promotion_number: n, promotion_name_fr: f.fr.value.trim() || null, promotion_name_ar: f.ar.value.trim() || null };
+    const oldLogo = state.promo.logo;
+    if (pending instanceof File) {
+      try { payload.promotion_logo_url = await uploadPromoLogo(pending); }
+      catch (err) { toast(t("promo_logo_fail", { msg: err.message || err }), "err"); return; }
+    } else if (pending === null) payload.promotion_logo_url = null;
+    const { data, error } = await db.from("promotion_settings").update(payload).eq("id", 1).select();
     if (error) { toast(/relation|schema cache|does not exist/i.test(error.message || "") ? t("promo_missing") : t("err_save_failed", { msg: error.message }), "err"); return; }
     if (!data || !data.length) { toast(t("promo_denied"), "err"); return; }   // RLS: aucune ligne modifiée
-    if (!logoColumnMissing) pending = undefined;
-    await loadPromotion(); applyBranding(); renderStats(); renderEvents(); prev();
-    toast(logoColumnMissing ? t("promo_logo_missing") : t("promo_saved"), logoColumnMissing ? "err" : undefined);
+    if (payload.promotion_logo_url !== undefined && oldLogo && oldLogo !== payload.promotion_logo_url) removeStoredPhoto(oldLogo);
+    pending = undefined;
+    await loadPromotion(); applyBranding(); renderStats(); renderEvents(); showLogo();
+    toast(t("promo_saved"));
   };
 }
 
